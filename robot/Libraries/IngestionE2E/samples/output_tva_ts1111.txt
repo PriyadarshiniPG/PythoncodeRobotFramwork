@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--2019-03-25T11:46:47 - adi_2_tva -p 190325-124608-190325-124601-ts1111_20190325_113830pt.xml -l nl-NL -o /opt/og/Countries/CSI/export/offer/ts1111_20190325_113830ot.xml -z -e HEVC-1080p25-STB -r crid://schange.com/796474b8-62aa-4ee4-b392-3f058303a983 -E 600000000 -P 100000000 TVA_100006_20190325124647.xml --><TVAMain xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:tva:metadata:2010" xml:lang="nl-NL">
+ <ProgramDescription>
+  <ProgramInformationTable>
+   <ProgramInformation programId="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt" fragmentId="1001.ts1111_20190325_113830pt" fragmentExpirationDate="2019-04-03T00:00:00Z" fragmentVersion="0">
+    <BasicDescription>
+     <Title xml:lang="nl-NL">crid://upc.com/1001/ts1111_20190325_113830pt</Title>
+     <Synopsis length="long" xml:lang="nl-NL">ÇirçösÚáóíéőöÓÁśł This test case creates a single package offer that contains sane defaults. Add filename to add new content._nvanmarle_ts1111_1553513905.56_obocsi crid://upc.com/1001/ts1111_20190325_113830pt_1553513905.56_ts1111_20190325_113830ptV0.0</Synopsis>
+     <Synopsis length="short" xml:lang="nl-NL">ÇirçösÚáóíéőöÓÁśł This test case creates a single package offer that contains sane defaults. Add filename to add new content.</Synopsis>
+     <Keyword xml:lang="nl-NL">1553513905.56</Keyword>
+     <Genre href="urn:libertyglobal:metadata:cs:ContentCS:2014_1:14.29" type="main"/>
+     <ParentalGuidance>
+      <ParentalRating xmlns="urn:tva:mpeg7:2008" href="urn:eventis:metadata:cs:AgeCS:2010:12"/>
+     </ParentalGuidance>
+     <CreditsList>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER">
+       <OrganizationName>Arrivo</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER-ID">
+       <OrganizationName>1001</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER-ASSET-ID">
+       <OrganizationName>ts1111_20190325_113830pt</OrganizationName>
+      </CreditsItem>
+     </CreditsList>
+     <RelatedMaterial>
+      <HowRelated href="urn:schange:metadata:cs:HowRelatedSoftLinkCS:2013:ToExternal"/>
+      <Format href="urn:schange:metadata:cs:SoftLinkQualifierCS:2013:TestID_Title"/>
+      <MediaLocator>
+       <MediaUri xmlns="urn:tva:mpeg7:2008">1553513905.56</MediaUri>
+      </MediaLocator>
+     </RelatedMaterial>
+     <RelatedMaterial>
+      <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:poster"/>
+      <MediaLocator>
+       <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/PI/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt/3f13284a31dfde0132a8fed28561080c.jpg</MediaUri>
+      </MediaLocator>
+     </RelatedMaterial>
+     <RelatedMaterial>
+      <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:boxCover"/>
+      <MediaLocator>
+       <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/PI/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt/a3265c8b171795b11d4dde7e4583a572.jpg</MediaUri>
+      </MediaLocator>
+     </RelatedMaterial>
+     <RelatedMaterial>
+      <HowRelated href="urn:eventis:metadata:cs:HowRelatedCS:2010:33.1"/>
+      <MediaLocator>
+       <MediaUri xmlns="urn:tva:mpeg7:2008">crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt2</MediaUri>
+      </MediaLocator>
+     </RelatedMaterial>
+     <RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab1"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt/25b23486f67590c1734898bb690d2bb6.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab2"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt/05e60fb1487ada4278494be7c3f49fa1.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab3"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt/58fc75f58753f1ca4268ff9e2996f147.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><Duration>PT4M13S</Duration>
+    </BasicDescription>
+    <OtherIdentifier organization="libertyglobal.com" type="Category" authority="adi2tva">root/D4A Categories/Films/Overige Films/ts1111</OtherIdentifier>
+    <OtherIdentifier organization="libertyglobal.com" type="Category" authority="adi2tva">root/Horizon/nl-NL/Store/Alle Videos/TV/Test Scripts/ts1111</OtherIdentifier>
+    <OtherIdentifier organization="eventis" type="LGI:Alias_Title" authority="eventis">1553513905.56</OtherIdentifier>
+    <OtherIdentifier organization="libertyglobal.com" type="Creator" authority="adi2tva">OG</OtherIdentifier>
+    <MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/VOD/Arrivo"/>
+   </ProgramInformation>
+   <ProgramInformation programId="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt2" fragmentId="1001.ts1111_20190325_113830pt2" fragmentExpirationDate="2019-04-03T00:00:00Z" fragmentVersion="0">
+    <BasicDescription>
+     <Title xml:lang="nl-NL">crid://upc.com/1001/ts1111_20190325_113830pt - preview</Title>
+     <CreditsList>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER">
+       <OrganizationName>Arrivo</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER-ID">
+       <OrganizationName>1001</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:CONTENT-PROVIDER-ASSET-ID">
+       <OrganizationName>ts1111_20190325_113830pt</OrganizationName>
+      </CreditsItem>
+     </CreditsList>
+     <RelatedMaterial>
+      <HowRelated href="urn:eventis:metadata:cs:HowRelatedCS:2010:33.2"/>
+      <MediaLocator>
+       <MediaUri xmlns="urn:tva:mpeg7:2008">crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt</MediaUri>
+      </MediaLocator>
+     </RelatedMaterial>
+     <RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab1"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt2/a6fb95c7978f5e591c69f0473bcf7ce9.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab2"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt2/cdd05268411a8be29e6972ee0a42c058.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><RelatedMaterial>
+    <HowRelated href="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:ScreenGrab3"/>
+    <MediaLocator>
+        <MediaUri xmlns="urn:tva:mpeg7:2008">http://staticqbr-nl-labe2esuperset.lab.cdn.dmdsdp.com/image-service/ImagesEPG/OndemandImages/CSI/Thumbnails/crid~~3A~~2F~~2Fog.libertyglobal.com~~2F1001~~2Fts1111_20190325_113830pt2/26d058203bc0b86a97c855271bbb0410.jpg</MediaUri>
+    </MediaLocator>
+</RelatedMaterial><Duration>PT29S</Duration>
+    </BasicDescription>
+    <OtherIdentifier organization="eventis" type="LGI:Alias_Preview" authority="eventis">1553513905.56</OtherIdentifier>
+   </ProgramInformation>
+  </ProgramInformationTable>
+  <GroupInformationTable>
+   <GroupInformation groupId="crid://og.libertyglobal.com/VOD/Arrivo">
+    <GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+    <BasicDescription>
+     <Title xml:lang="nl-NL">Arrivo</Title>
+     <Genre href="urn:eventis:metadata:cs:GroupTypeCS:2010:nodeCatalogue" type="other"/>
+    </BasicDescription>
+    <MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/VOD"/>
+   </GroupInformation>
+   <GroupInformation groupId="crid://og.libertyglobal.com/VOD">
+    <GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+    <BasicDescription>
+     <Title xml:lang="nl-NL">VOD</Title>
+     <Genre href="urn:eventis:metadata:cs:GroupTypeCS:2010:nodeCatalogue" type="other"/>
+    </BasicDescription>
+    <MemberOf xsi:type="MemberOfType" crid="crid://schange.com/796474b8-62aa-4ee4-b392-3f058303a983"/>
+   </GroupInformation>
+   <GroupInformation groupId="crid://og.libertyglobal.com/PREVIEW_SVOD">
+    <GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+    <BasicDescription>
+     <Title xml:lang="nl-NL">Preview SVOD</Title>
+     <Synopsis length="long" xml:lang="nl-NL">Preview SVOD</Synopsis>
+     <Synopsis length="short" xml:lang="nl-NL">Preview SVOD</Synopsis>
+     <Genre href="urn:eventis:metadata:cs:GroupTypeCS:2010:product" type="other"/>
+     <Genre href="urn:schange:metadata:cs:TitleType:2014:isPreview" type="other"/>
+     <CreditsList>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:PROVIDER">
+       <OrganizationName>internal</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:PROVIDER-ID">
+       <OrganizationName>internal</OrganizationName>
+      </CreditsItem>
+     </CreditsList>
+     <PurchaseList>
+      <PurchaseItem start="2009-01-01T00:00:00Z" end="2029-01-01T00:00:00Z">
+       <Price currency="EUR">0.00</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:opportunity.subscription">
+         <Name>Subscription offer</Name>
+        </PurchaseType>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:msoProductId">
+         <Definition>Preview_SVOD</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+    </BasicDescription>
+    <OtherIdentifier organization="eventis" type="SUBSCRIPTION_PACKAGE_ID" authority="eventis">PREVIEW_SVOD</OtherIdentifier>
+    <OtherIdentifier organization="libertyglobal.com" type="EdsProductId" authority="adi2tva">100000000</OtherIdentifier>
+   </GroupInformation>
+   <GroupInformation groupId="crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot" fragmentId="1001.ts1111_20190325_113830ot" fragmentVersion="0">
+    <GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+    <BasicDescription>
+     <Title xml:lang="nl-NL">crid://upc.com/1001/ts1111_20190325_113830ot</Title>
+     <Synopsis length="long" xml:lang="nl-NL">ÇirçösÚáóíéőöÓÁśł This test case creates a single package offer that contains sane defaults. Add filename to add new content._nvanmarle_ts1111_1553513905.56_obocsi crid://upc.com/1001/ts1111_20190325_113830ot_1553513905.56_ts1111_20190325_113830otV0.0</Synopsis>
+     <Synopsis length="short" xml:lang="nl-NL">ÇirçösÚáóíéőöÓÁśł This test case creates a single package offer that contains sane defaults. Add filename to add new content.</Synopsis>
+     <Genre href="urn:eventis:metadata:cs:GroupTypeCS:2010:product" type="other"/>
+     <ParentalGuidance>
+      <ParentalRating xmlns="urn:tva:mpeg7:2008" href="urn:eventis:metadata:cs:AgeCS:2010:12"/>
+     </ParentalGuidance>
+     <CreditsList>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:PROVIDER">
+       <OrganizationName>Arrivo</OrganizationName>
+      </CreditsItem>
+      <CreditsItem role="urn:eventis:metadata:cs:RoleCS:2010:PROVIDER-ID">
+       <OrganizationName>1001</OrganizationName>
+      </CreditsItem>
+     </CreditsList>
+     <PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-02T00:00:00Z">
+       <Price currency="EUR">2.99</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:opportunity.transactional">
+         <Name>Transactional offer</Name>
+        </PurchaseType>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:playForPeriod"/>
+        <QuantityUnit href="urn:tva:metadata:cs:UnitTypeCS:2007:minutes"/>
+        <QuantityRange max="1440"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:msoProductId">
+         <Definition>ts1111_20190325_113830ot0</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+    </BasicDescription>
+   </GroupInformation>
+  </GroupInformationTable>
+  <ProgramLocationTable>
+   <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt"/>
+    <ProgramURL>247a7381b2f1600bf4459d6a92b79861_2204923a2f80eeccb470692c2c48fb34</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt1-AVC-1080p-OTT</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">AVC-1080p-OTT</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:HD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-02T00:00:00Z">
+       <Price currency="EUR">2.99</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <CaptionLanguage>nl</CaptionLanguage><CaptionLanguage>en</CaptionLanguage><AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL">H264</Name>
+</FileFormat><FileSize>397096044</FileSize>
+     <BitRate maximum="5273024">5273024</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:4.3.2">
+        <Name xml:lang="nl-NL">AAC (ADTS)</Name>
+        <Definition xml:lang="nl-NL">AAC (ADTS)</Definition>
+    </Coding>
+    <MixType href=""/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:4.3.2">
+        <Name xml:lang="nl-NL">AAC (ADTS)</Name>
+        <Definition xml:lang="nl-NL">AAC (ADTS)</Definition>
+    </Coding>
+    <MixType href=""/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en">H264</Name>
+        <Definition xml:lang="en">H264</Definition>
+    </Coding>
+    <HorizontalSize>1920</HorizontalSize>
+    <VerticalSize>1080</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Movie" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">2204923a2f80eeccb470692c2c48fb34</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">247a7381b2f1600bf4459d6a92b79861_2204923a2f80eeccb470692c2c48fb34</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+   <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt"/>
+    <ProgramURL>0326c0a943ec2c61772fe13ad52a1d9a_2204923a2f80eeccb470692c2c48fb34</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt1-AVC-1080i25-STB</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">AVC-1080i25-STB</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:HD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-02T00:00:00Z">
+       <Price currency="EUR">2.99</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <CaptionLanguage>nl</CaptionLanguage><CaptionLanguage>en</CaptionLanguage><AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL">H264</Name>
+</FileFormat><FileSize>397096044</FileSize>
+     <BitRate maximum="8210336">8210336</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:1">
+        <Name xml:lang="nl-NL">AC-3</Name>
+        <Definition xml:lang="nl-NL">AC-3</Definition>
+    </Coding>
+    <MixType href="urn:eventis:metadata:cs:AudioPresentationCS:2010:10"/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:1">
+        <Name xml:lang="nl-NL">AC-3</Name>
+        <Definition xml:lang="nl-NL">AC-3</Definition>
+    </Coding>
+    <MixType href="urn:eventis:metadata:cs:AudioPresentationCS:2010:10"/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en">H264</Name>
+        <Definition xml:lang="en">H264</Definition>
+    </Coding>
+    <HorizontalSize>1920</HorizontalSize>
+    <VerticalSize>1080</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Movie" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">2204923a2f80eeccb470692c2c48fb34</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">0326c0a943ec2c61772fe13ad52a1d9a_2204923a2f80eeccb470692c2c48fb34</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+   <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt"/>
+    <ProgramURL>97babeda5bc964dcd6f4cfc8f21df505_2204923a2f80eeccb470692c2c48fb34</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt1-HEVC-1080p25-STB</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">HEVC-1080p25-STB</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:HD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-02T00:00:00Z">
+       <Price currency="EUR">2.99</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <CaptionLanguage>nl</CaptionLanguage><CaptionLanguage>en</CaptionLanguage><AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL"/>
+</FileFormat><FileSize>397096044</FileSize>
+     <BitRate maximum="5085024">5085024</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:1">
+        <Name xml:lang="nl-NL">AC-3</Name>
+        <Definition xml:lang="nl-NL">AC-3</Definition>
+    </Coding>
+    <MixType href="urn:eventis:metadata:cs:AudioPresentationCS:2010:10"/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:1">
+        <Name xml:lang="nl-NL">AC-3</Name>
+        <Definition xml:lang="nl-NL">AC-3</Definition>
+    </Coding>
+    <MixType href="urn:eventis:metadata:cs:AudioPresentationCS:2010:10"/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en"/>
+        <Definition xml:lang="en"/>
+    </Coding>
+    <HorizontalSize>1920</HorizontalSize>
+    <VerticalSize>1080</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830ot"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Movie" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">2204923a2f80eeccb470692c2c48fb34</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">97babeda5bc964dcd6f4cfc8f21df505_2204923a2f80eeccb470692c2c48fb34</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+   <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt2"/>
+    <ProgramURL>40fa0678ca0ff941302e099589252c20_ec80816b362f47f54c637f2ad253deb4</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt2-AVC-SD169-OTT</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">AVC-SD169-OTT</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:SD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-03T00:00:00Z">
+       <Price currency="EUR">0.00</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/PREVIEW_SVOD</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL">H264</Name>
+</FileFormat><FileSize>14241752</FileSize>
+     <BitRate maximum="1821344">1821344</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:4.3.2">
+        <Name xml:lang="nl-NL">AAC (ADTS)</Name>
+        <Definition xml:lang="nl-NL">AAC (ADTS)</Definition>
+    </Coding>
+    <MixType href=""/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en">H264</Name>
+        <Definition xml:lang="en">H264</Definition>
+    </Coding>
+    <HorizontalSize>1024</HorizontalSize>
+    <VerticalSize>576</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/PREVIEW_SVOD"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Preview" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">ec80816b362f47f54c637f2ad253deb4</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">40fa0678ca0ff941302e099589252c20_ec80816b362f47f54c637f2ad253deb4</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+  <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt2"/>
+    <ProgramURL>59acdc871e364d6a7f35a2a986874862_ec80816b362f47f54c637f2ad253deb4</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt2-AVC-576i25-STB</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">AVC-576i25-STB</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:SD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-03T00:00:00Z">
+       <Price currency="EUR">0.00</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/PREVIEW_SVOD</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL">H264</Name>
+</FileFormat><FileSize>14241752</FileSize>
+     <BitRate maximum="2516192">2516192</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:4.3.2">
+        <Name xml:lang="nl-NL">AAC (ADTS)</Name>
+        <Definition xml:lang="nl-NL">AAC (ADTS)</Definition>
+    </Coding>
+    <MixType href=""/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en">H264</Name>
+        <Definition xml:lang="en">H264</Definition>
+    </Coding>
+    <HorizontalSize>720</HorizontalSize>
+    <VerticalSize>576</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/PREVIEW_SVOD"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Preview" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">ec80816b362f47f54c637f2ad253deb4</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">59acdc871e364d6a7f35a2a986874862_ec80816b362f47f54c637f2ad253deb4</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+  <OnDemandProgram fragmentExpirationDate="2019-04-03T00:00:00Z">
+    <Program crid="crid://og.libertyglobal.com/1001/ts1111_20190325_113830pt2"/>
+    <ProgramURL>abed43d2c8c0a91111019b10a3afe1d3_ec80816b362f47f54c637f2ad253deb4</ProgramURL>
+    <InstanceMetadataId>imi:1001_ts1111_20190325_113830pt2-HEVC-576p25-STB</InstanceMetadataId>
+    <InstanceDescription>
+     <Genre href="urn:eventis:metadata:cs:PropertyCS:2010:IsRemoteContent" type="other"/><Genre href="urn:eventis:metadata:cs:PropertyCS:2010:profile" type="other">
+    <Definition xml:lang="nl-NL">HEVC-576p25-STB</Definition>
+</Genre><Genre href="urn:schange:metadata:cs:ResolutionCS:2015:SD" type="other"/><PurchaseList>
+      <PurchaseItem start="2019-03-25T00:00:00Z" end="2019-04-03T00:00:00Z">
+       <Price currency="EUR">0.00</Price>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:availabilityWindow"/>
+       </Purchase>
+       <Purchase>
+        <PurchaseType href="urn:eventis:metadata:cs:PurchaseTypeCS:2010:productCrid">
+         <Definition>crid://og.libertyglobal.com/PREVIEW_SVOD</Definition>
+        </PurchaseType>
+       </Purchase>
+      </PurchaseItem>
+     </PurchaseList>
+     <AVAttributes><FileFormat href="urn:mpeg:mpeg7:cs:FileFormatCS:2001">
+    <Name xml:lang="nl-NL"/>
+</FileFormat><FileSize>14241752</FileSize>
+     <BitRate maximum="2060480">2060480</BitRate><AudioAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:AudioCodingFormatCS:2001:4.3.2">
+        <Name xml:lang="nl-NL">AAC (ADTS)</Name>
+        <Definition xml:lang="nl-NL">AAC (ADTS)</Definition>
+    </Coding>
+    <MixType href=""/>
+    <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
+</AudioAttributes><VideoAttributes>
+    <Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2">
+        <Name xml:lang="en"/>
+        <Definition xml:lang="en"/>
+    </Coding>
+    <HorizontalSize>720</HorizontalSize>
+    <VerticalSize>576</VerticalSize>
+    <FrameRate>25.00</FrameRate>
+</VideoAttributes></AVAttributes><MemberOf xsi:type="MemberOfType" crid="crid://og.libertyglobal.com/PREVIEW_SVOD"/>
+     <OtherIdentifier organization="eventis" type="LGI:Alias_Preview" authority="eventis">1553513905.56</OtherIdentifier>
+     <OtherIdentifier organization="eventis" type="BillingID" authority="eventis">nvanm</OtherIdentifier>
+     <OtherIdentifier organization="libertyglobal.com" type="Checksum" authority="adi2tva" encoding="text">ec80816b362f47f54c637f2ad253deb4</OtherIdentifier>
+    <OtherIdentifier type="DrmId" authority="adi2tva" organization="libertyglobal.com" encoding="text">abed43d2c8c0a91111019b10a3afe1d3_ec80816b362f47f54c637f2ad253deb4</OtherIdentifier></InstanceDescription>
+    <StartOfAvailability>2019-03-25T00:00:00Z</StartOfAvailability>
+    <EndOfAvailability>2019-04-03T00:00:00Z</EndOfAvailability>
+   </OnDemandProgram>
+  </ProgramLocationTable>
+  <ProgramReviewTable/>
+ </ProgramDescription>
+</TVAMain>

@@ -1,0 +1,6 @@
+wp1-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com
+wp2-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com
+wp3-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com
+wp4-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com
+wp5-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com
+wp6-pod1-vod-nl-labe2esuperset.lab.cdn.dmdsdp.com

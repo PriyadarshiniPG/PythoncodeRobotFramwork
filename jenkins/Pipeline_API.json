@@ -1,0 +1,41 @@
+{
+    "labe2esi": {
+        "CPEs": ["3C36E4-EOSSTB-003356424204"]
+    },
+    "labe2esuperset": {
+        "CPEs": ["3C36E4-EOSSTB-003470513403","0000F0-HZNSTB-171582122429"]
+    },
+   "preprod_nl": {
+        "CPEs": ["3C36E4-EOSSTB-003356424204"]
+    },
+   "preprod_ch": {
+        "CPEs": ["3C36E4-EOSSTB-003468638402"]
+    },
+   "preprod_cl": {
+        "CPEs": ["000378-EOSSTB-103357375900"]
+    },
+   "preprod_uk": {
+        "CPEs": ["3C36E4-EOSSTB-003356177000"]
+    },
+    "preprod_at": {
+        "CPEs": ["000378-EOSSTB-003771000704"]
+    },
+   "prod_nl": {
+        "CPEs": ["3C36E4-EOSSTB-003591160001"]
+    },
+   "prod_ch": {
+        "CPEs": ["3C36E4-EOSSTB-003494764008"]
+    },
+   "prod_cl": {
+        "CPEs": ["000378-EOSSTB-003436335701"]
+    },
+   "prod_uk": {
+        "CPEs": ["3C36E4-EOSSTB-003601193703"]
+    },
+   "prod_be": {
+        "CPEs": ["3C36E4-EOSSTB-003696159601"]
+    },
+    "prod_at": {
+        "CPEs": ["000378-EOSSTB-003770994105"]
+    }
+}

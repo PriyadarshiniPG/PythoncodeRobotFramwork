@@ -1,0 +1,14 @@
+{
+    "prod_be": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "COUNTRY-RACK-PROD-BE-1": true
+        }
+    },
+    "prod_ch": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "COUNTRY-RACK-PROD-CH-1": true
+        }
+    }
+}

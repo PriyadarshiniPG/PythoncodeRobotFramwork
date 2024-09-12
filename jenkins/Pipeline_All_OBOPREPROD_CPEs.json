@@ -1,0 +1,26 @@
+[
+ {
+   "name": "CH-PP-HZN4-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003356367502",
+   "repo": "eos_srxx",
+   "lab": "preprod_ch",
+   "location": "BA30"
+ },
+ {
+   "name": "NL-PP-HZN4-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003640698308",
+   "repo": "eos_srxx",
+   "lab": "preprod_nl",
+   "location": "BA30"
+ },
+ {
+   "name": "NL-PP-HZN4-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003397221304",
+   "repo": "eos_srxx",
+   "lab": "preprod_nl",
+   "location": "BA30"
+ }
+]

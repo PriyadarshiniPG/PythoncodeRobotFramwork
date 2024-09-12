@@ -1,0 +1,72 @@
+{
+  "transaction_id": 59,
+  "prompt": "",
+  "message": "query_response",
+  "NMAS_PRFX_TRANSACTION_ID": "59",
+  "audio_transfer_info": {
+    "packages": [
+      {
+        "time": "20990000000000000",
+        "bytes": 656
+      },
+      {
+        "time": "20990000000000000",
+        "bytes": 656
+      }
+    ],
+    "start_time": "20990000000000000",
+    "end_time": "20990000000000000",
+    "audio_id": 14,
+    "nss_server": "nss-server:1"
+  },
+  "nlu_interpretation_results": {
+    "payload_version": "1.0",
+    "payload_format": "nlu-base",
+    "payload": {
+      "type": "nlu-1.0",
+      "diagnostic_info": {
+        "timing": {
+          "finalRespSentDelay": "175",
+          "intermediateRespSentDelay": "44"
+        },
+        "nlu_language": "xyz-XYZ",
+        "context_tag": "M6808_A753",
+        "nmaid": "NMDPTRIAL_sonic_sellick_org20160126065942",
+        "nlu_version": "[Version:nlps-xyz-XYZ-QUICKNLU;Label;6808_NLPS_50;Model;a220a240-67f7-11e7-a4b3-915435de2afa;Build;664171ca-b733-11e8-860d-6f91a9b85b68;QnluTrain;1.20.3;CreatedAt;2099-01-01T00:59:59.000Z]"
+      },
+      "interpretations": [
+        {
+          "concepts": {
+            "nuance_tv_appname": [
+              {
+                "ranges": [
+                  [
+                    0,
+                    7
+                  ]
+                ],
+                "literal": "YouTube",
+                "value": "com.libertyglobal.app.youtube"
+              }
+            ]
+          },
+          "literal": "YouTube",
+          "action": {
+            "intent": {
+              "confidence": 1.0,
+              "value": "nuance_tv_open_app"
+            }
+          }
+        }
+      ]
+    },
+    "status": "success",
+    "final_response": 1
+  },
+  "cadence_regulatable_result": "completeRecognition",
+  "status_code": 0,
+  "NMAS_PRFX_SESSION_ID": "d229a5f4-8be5-4939-88bc-35b7a3249990",
+  "result_format": "nlu_interpretation_results",
+  "result_type": "NDSP_ASR_APP_CMD",
+  "final_response": 1
+}

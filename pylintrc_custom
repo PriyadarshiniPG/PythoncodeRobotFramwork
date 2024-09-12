@@ -1,0 +1,80 @@
+# This config file contains only overriden settings,
+# the defaults can be taken from the pylint source code -
+# https://github.com/PyCQA/pylint/blob/master/pylintrc
+[MESSAGES CONTROL]
+# E0632 (unbalanced-tuple-unpacking) Possible unbalanced tuple unpacking with sequence
+# C0412(ungrouped-imports) Pylint bug in try/except https://github.com/PyCQA/pylint/issues/2225
+# R0205 (useless-object-inheritance) Used when a class inherit from object, which under python3
+# is implicit, hence can be safely removed from bases
+# C0414 (useless-import-alias), ] Import alias does not rename original package.
+# Bug in try/except statement
+# R1711(useless-return), TestCaseNameAsDescription.shortDescription] Useless return at end of
+# function or method. It fail our test_keywords.py > shortDescription methods
+disable=E0632,C0412,R0205,C0414,R1711,W0403,C0325,
+
+# A comma-separated list of package or module names from where C extensions may
+# be loaded. Extensions are loading into the active Python interpreter and may
+# run arbitrary code
+# Default is empty.
+extension-pkg-whitelist=lxml
+
+
+[BASIC]
+# Default is:
+#         [A-Z_][a-zA-Z0-9]+$
+class-rgx=[A-Z_][a-zA-Z0-9_]+$
+
+
+[DESIGN]
+
+# Maximum number of arguments for function / method
+# Default is 5.
+max-args=15
+
+# Maximum number of attributes for a class (see R0902).
+# Default is 7.
+max-attributes=15
+
+# Minimum number of public methods for a class (see R0903).
+# Default is 2.
+min-public-methods=1
+
+# Maximum number of local variables (see R0914)
+# Default is 15.
+max-locals=35
+
+# Method name should be matched by this regex
+# Default is [a-z_][a-z0-9_]{2,30}$
+method-rgx=[a-z_][a-z0-9_]{2,60}$
+
+# Function name should be matched by this regex
+# Default is [a-z_][a-z0-9_]{2,30}$
+function-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Maximum number of nested blocks for function / method body
+# Default is 5
+max-nested-blocks=15
+
+# Maximum number of public methods for a class (see R0904).
+# Default is 20
+max-public-methods=45
+
+
+# Maximum number of branch for function / method body (see R0912)
+# Default is 12
+max-branches=35
+
+# Maximum number of statements in function / method body
+# Default is 50
+max-statements=120
+
+
+# Maximum number of lines in a module
+# Default is 1000
+max-module-lines=3000
+
+[SIMILARITIES]
+
+# Minimum lines number of a similarity.
+# Default is 4
+min-similarity-lines=6

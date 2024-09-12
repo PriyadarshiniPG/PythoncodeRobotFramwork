@@ -1,0 +1,58 @@
+{
+  "message": "query_response",
+  "final_response": 1,
+  "result_type": "NDSP_ASR_APP_CMD",
+  "NMAS_PRFX_TRANSACTION_ID": "59",
+  "nlu_interpretation_results": {
+    "payload_version": "1.0",
+    "final_response": 1,
+    "payload": {
+      "interpretations": [
+        {
+          "action": {
+            "intent": {
+              "value": "nuance_tv_channel_previous",
+              "confidence": 1.0
+            }
+          },
+          "literal": "Switch back"
+        }
+      ],
+      "type": "nlu-1.0",
+      "diagnostic_info": {
+        "timing": {
+          "finalRespSentDelay": "88",
+          "intermediateRespSentDelay": "208"
+        },
+        "nlu_language": "xyz-XYZ",
+        "nlu_version": "[Version:nlps-xyz-XYZ-QUICKNLU;Label;6808_NLPS_57;Model;a220a240-67f7-11e7-a4b3-915435de2afa;Build;c8a0cb04-d1fa-11e8-8ba3-4995b91dd991;QnluTrain;1.20.3;CreatedAt;2099-01-01T00:59:59.000Z]",
+        "nmaid": "NMDPTRIAL_sonic_sellick_org20160126065942",
+        "context_tag": "M6808_A753"
+      }
+    },
+    "payload_format": "nlu-base",
+    "status": "success"
+  },
+  "prompt": "",
+  "status_code": 0,
+  "transaction_id": 59,
+  "cadence_regulatable_result": "completeRecognition",
+  "result_format": "nlu_interpretation_results",
+  "NMAS_PRFX_SESSION_ID": "61b13eb6-d28d-439e-815a-46771f42b8eb",
+  "audio_transfer_info": {
+    "packages": [
+      {
+        "bytes": 656,
+        "time": "20990000000000000"
+      },
+      {
+        "bytes": 656,
+        "time": "20990000000000000"
+      }
+    ],
+    "nss_server": "nss-server:1",
+    "audio_id": 59,
+    "end_time": "20990000000000000",
+    "start_time": "20990000000000000"
+  }
+}

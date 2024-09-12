@@ -1,0 +1,40 @@
+{
+    "preprod_nl": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "SHILPA-LOCAL-PREPROD-NL-1": true,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-1": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-2": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-3": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-4": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-5": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-6": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-7": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-8": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-9": false,
+              "NL-PREPROD-HZN4-ECX-DH5-A18-10": false
+        }
+    },
+    "preprod_ch": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "SHILPA-LOCAL-PREPROD-CH-1": true,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-1": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-2": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-3": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-4": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-5": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-6": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-7": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-8": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-9": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-10": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-11": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-12": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-13": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-14": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-15": false,
+              "CH-PREPROD-HZN4-ECX-DH5-A19-16": false
+        }
+    }
+}

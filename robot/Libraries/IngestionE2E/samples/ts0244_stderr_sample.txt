@@ -1,0 +1,217 @@
+INFO: Running testcase ts0244. See https://wiki.chello.com/display/VST/Test+Data#TestData-ts0244 for more information.
+INFO: Package 0 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FAdult_SVod_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Adult_SVod_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Adult_SVod_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry-0-0_Package/Adult_SVod_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry-0-0_Package/Adult_SVod_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Adult_SVod_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry-0-0_Package/Adult_SVod_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD Adult_SVod_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Adult_SVod_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 1 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FBasic_SVoD_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Basic_SVoD_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Basic_SVoD_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry-0-0_Package/Basic_SVoD_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry-0-0_Package/Basic_SVoD_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Basic_SVoD_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry-0-0_Package/Basic_SVoD_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD Basic_SVoD_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Basic_SVoD_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 2 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FCoD_1_SVod_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_CoD_1_SVod_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_CoD_1_SVod_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry-0-0_Package/CoD_1_SVod_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry-0-0_Package/CoD_1_SVod_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_CoD_1_SVod_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry-0-0_Package/CoD_1_SVod_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD CoD_1_SVod_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_1_SVod_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 3 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FCoD_2_SVod_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_CoD_2_SVod_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_CoD_2_SVod_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry-0-0_Package/CoD_2_SVod_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry-0-0_Package/CoD_2_SVod_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_CoD_2_SVod_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry-0-0_Package/CoD_2_SVod_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD CoD_2_SVod_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-CoD_2_SVod_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 4 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FDelayTV_Free_SVod_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Free_SVod_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Free_SVod_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Free_SVod_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Free_SVod_Entry-0-0_Package/DelayTV_Free_SVod_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Free_SVod_Entry-0-0_Package/DelayTV_Free_SVod_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Free_SVod_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Free_SVod_Entry-0-0_Package/DelayTV_Free_SVod_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Free_SVod_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD DelayTV_Free_SVod_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 5 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FDelayTV_Pay_SVod_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Pay_SVod_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Pay_SVod_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry-0-0_Package/DelayTV_Pay_SVod_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry-0-0_Package/DelayTV_Pay_SVod_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Pay_SVod_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry-0-0_Package/DelayTV_Pay_SVod_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD DelayTV_Pay_SVod_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-DelayTV_Pay_SVod_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 6 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FFamiliepakket
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Familiepakket.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Familiepakket.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket-0-0_Package/Familiepakket1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket-0-0_Package/Familiepakket2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Familiepakket.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket-0-0_Package/Familiepakket3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket-0-0_Package/ADI.DTD
+INFO: Making the SVoD Familiepakket Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Familiepakket_os-0-0_Offer/ADI.DTD
+INFO: Package 7 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FFree_SVoD_Entry
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Free_SVoD_Entry.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Free_SVoD_Entry.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry-0-0_Package/Free_SVoD_Entry1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry-0-0_Package/Free_SVoD_Entry2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Free_SVoD_Entry.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry-0-0_Package/Free_SVoD_Entry3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry-0-0_Package/ADI.DTD
+INFO: Making the SVoD Free_SVoD_Entry Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Free_SVoD_Entry_os-0-0_Offer/ADI.DTD
+INFO: Package 9 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FDigitale_TV_Starter
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Starter.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Starter.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter-0-0_Package/Digitale_TV_Starter1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter-0-0_Package/Digitale_TV_Starter2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Starter.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter-0-0_Package/Digitale_TV_Starter3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter-0-0_Package/ADI.DTD
+INFO: Making the SVoD Digitale_TV_Starter Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter_os-0-0_Offer/ADI.DTD
+INFO: Package 10 of 10
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fupc.com~~2F1001~~2FDigitale_TV_Royaal
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Royaal.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Royaal.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Royaal-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Royaal-0-0_Package/Digitale_TV_Royaal1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Royaal-0-0_Package/Digitale_TV_Royaal2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Royaal.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Royaal-0-0_Package/Digitale_TV_Royaal3.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Royaal-0-0_Package/ADI.DTD
+INFO: Making the SVoD Digitale_TV_Royaal Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter_os-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-Digitale_TV_Starter_os-0-0_Offer/ADI.DTD
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Adult_SVod_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Basic_SVoD_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_CoD_1_SVod_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_CoD_2_SVod_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Free_SVod_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_DelayTV_Pay_SVod_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Familiepakket.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Free_SVoD_Entry.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Starter.jpg
+INFO: Removing temp file /tmp/tmp_makeposter_20170918104152-718_1001_Digitale_TV_Royaal.jpg
+INFO: Finished.
+
+Expected Results:
+It will create all the standard svods.
+You will need to have CA see the svod section in https://wiki.chello.com/display/VST/VOD+How-to
+Expect darby error until CA is finished.

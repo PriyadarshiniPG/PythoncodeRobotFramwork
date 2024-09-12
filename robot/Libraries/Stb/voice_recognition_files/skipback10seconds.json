@@ -1,0 +1,73 @@
+{
+	"message": "query_response",
+	"final_response": 1,
+	"result_type": "NDSP_ASR_APP_CMD",
+	"NMAS_PRFX_TRANSACTION_ID": "59",
+	"nlu_interpretation_results": {
+		"payload_version": "1.0",
+		"final_response": 1,
+		"payload": {
+			"interpretations": [{
+				"action": {
+					"intent": {
+						"value": "nuance_tv_mediacmd_rewind",
+						"confidence": 1.0
+					}
+				},
+				"literal": "Skip back 10 seconds",
+				"concepts": {
+					"nuance_tv_duration": [{
+						"literal": "10 seconds",
+						"ranges": [[10,
+						20]],
+						"concepts": {
+							"nuance_DURATION": [{
+								"value": {
+									"nuance_DURATION_ABS": {
+										"nuance_SECOND": 10
+									}
+								},
+								"literal": "10 seconds",
+								"ranges": [[10,
+								20]]
+							}]
+						}
+					}]
+				}
+			}],
+			"type": "nlu-1.0",
+			"diagnostic_info": {
+				"timing": {
+					"finalRespSentDelay": "128",
+					"intermediateRespSentDelay": "48"
+				},
+				"nlu_language": "xyz-XYZ",
+				"nlu_version": "[Version: nlps-xyz-XYZ-QUICKNLU;Label;6808_NLPS_59;Model;a220a240-67f7-11e7-a4b3-915435de2afa;Build;9222a803-ec00-11e8-8ba3-334f610814a8;QnluTrain;1.20.3;CreatedAt;2018-11-19T13:16:35.000Z]",
+				"nmaid": "NMDPTRIAL_sonic_sellick_org20160126065942",
+				"context_tag": "M6808_A753"
+			}
+		},
+		"payload_format": "nlu-base",
+		"status": "success"
+	},
+	"prompt": "",
+	"status_code": 0,
+	"transaction_id": 59,
+	"cadence_regulatable_result": "completeRecognition",
+	"result_format": "nlu_interpretation_results",
+	"NMAS_PRFX_SESSION_ID": "25a0af04-bd15-47d6-a7f3-2ebd6f8227f7",
+	"audio_transfer_info": {
+		"packages": [{
+			"bytes": 656,
+			"time": "20990000000000000"
+		},
+		{
+			"bytes": 656,
+			"time": "20990000000000000"
+		}],
+		"nss_server": "nss-server:1",
+		"audio_id": 14,
+		"end_time": "20990000000000000",
+		"start_time": "20990000000000000"
+	}
+}

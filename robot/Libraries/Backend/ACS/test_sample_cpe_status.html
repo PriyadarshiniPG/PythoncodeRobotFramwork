@@ -1,0 +1,1732 @@
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en">
+<head>
+	<title>ID: 003356472104, state: PENDING (1)</title>
+	<link rel="stylesheet" type="text/css" href="/manage_page_style.css" />
+	<!-- query Path handling -->
+	
+	
+<style type="text/css">
+<!--
+.style1 {font-family: "Courier New", Courier, mono}
+.toolTip {
+        background-color: #fff;
+        border: 1px solid #8bd124;
+        color: #000000;
+        font-family: Arial, Verdana, Helvetica;
+        font-size: 11px;
+        padding: 6px;
+        position: absolute;
+        text-align: left;
+       visibility: hidden;
+}
+.lockBtn {
+    visibility: hidden;
+    border: 0px;
+}
+.propsListKey {
+           font-size: 9px;
+           color: #666666;
+}
+.propsListVal {
+           font-size: 9px;
+           color: #000000;
+}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+var ax__maybeLoadJq;
+ax__maybeLoadJq = function() {
+    if (!(typeof jQuery !== "undefined" && jQuery !== null)) {
+        var jQ = document.createElement('script');
+        jQ.type = 'text/javascript';
+        jQ.src = '/++resource++ax_common/scripts/jquery/jquery.min.js';
+        return document.body.appendChild(jQ);
+    }
+};
+
+/* This automaticaly loads jquery if its not already included on the page */
+if (window.addEventListener) {
+    window.addEventListener('load', ax__maybeLoadJq, false);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', ax__maybeLoadJq);
+}
+
+curDivBtn = "";
+
+function tt_btnswap(divid) {
+   if (curDivBtn != "") {
+     if ( curDivBtn != divid) {
+        document.getElementById(curDivBtn).style.visibility = 'hidden';
+        document.getElementById(curDivBtn+'btn').style.visibility = 'hidden';
+    }}
+        tt_swap(divid+'btn');
+        tt_swap(divid);
+        curDivBtn = divid;
+}
+
+
+function tt_swap(divid) {
+ el = document.getElementById(divid);
+ if (el.style.visibility=='visible'){
+     el.style.visibility ='hidden';
+ } else {
+     el.style.visibility ='visible';
+ }
+}
+
+function get_el_byid(myid) {
+    /* Do not use $("#" + myid) because myid contains '.' and other special
+     * characters interpreted by jquery as a special selector
+     */
+    return $(document.getElementById(myid));
+}
+
+function openPop(url, name, w, h){
+        foo=window.open(url,name,'width='+String(w)+',height='+String(h)+',left=0,top=0,resizable=yes,scrollbars=yes');
+        foo.focus();
+        }
+
+/***
+   BEGIN AJAX CPEInfo DIV code
+*/
+
+function GetXmlHttpObject(handler){
+        var objXMLHttp=null
+        if (window.XMLHttpRequest) {
+                objXMLHttp=new XMLHttpRequest()
+        } else if (window.ActiveXObject) {
+                objXMLHttp=new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        return objXMLHttp
+}
+
+function getCPEDetailsByAJAX(divID){
+        var cpeid = divID.substr(5);
+
+        var load_msg = 'loading Infos for CPE ' + cpeid + '...';
+        var div_value = get_el_byid(divID).html();
+
+        // just return if already loaded before
+        if (div_value != "no info" && div_value != load_msg)
+                return;
+
+        get_el_byid(divID).html(load_msg);
+
+        $.get(
+            "getCPEDetails",
+            {"cpeid": cpeid, "rnd": Math.floor(Math.random()*100000)},
+            function(data) {
+                get_el_byid(divID).html(data);
+            }
+        );
+
+        return 1;
+}
+
+function getCPELastResultByAJAX(cpeid, divID){
+        var envID = divID.substr(4);
+
+        var load_msg = 'loading Infos for envID ' + envID + '...';
+        var div_value = get_el_byid(divID).html();
+
+        // just return if already loaded before
+        if (div_value != "no info" && div_value != load_msg)
+                return;
+
+        get_el_byid(divID).html(load_msg);
+
+        $.get(
+            "getCPELastResult",
+            {
+                "cpeid": cpeid,
+                "sc_from": $("#sc_from").val(),
+                "sc_to": $("#sc_to").val(),
+                "envid": envID,
+                "rnd": Math.floor(Math.random()*100000)
+            },
+            function(data) {
+                get_el_byid(divID).html(data);
+            }
+        );
+        return 1;
+}
+
+function url_encode(url){
+        url = escape(url);
+        url = url.replace(/[+]+/g, "%2B");
+        url = url.replace(/[/]+/g, "%2F");
+        return url;
+}
+
+/***
+   END AJAX CPEInfo DIV code
+*/
+
+-->
+</script>
+
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+        function enlargeParamBox(){
+                var box = document.getElementById('params_box');
+                var boxCols = box.cols
+                var boxRow = box.rows
+                box.rows = boxRow*2;
+                box.cols = boxCols* 1.15;
+        }
+
+        function showSCStuff ( stuff) {
+                window.document.formsched.parameters.value=stuff;
+        }
+
+        function writeSC (envId, id1, initargs) {
+                window.document.formsched.parameters.value=initargs;
+                window.document.formsched.multistep_scid.value=id1;
+        }
+
+
+        //////////////////////////
+        //// BEGIN AJAX STUFF ////
+        //////////////////////////
+        var AJAX_INTERVAL = 1000;       // poll each x ms
+        var MAX_AJAX_LOOPS = 20;        // poll max x times
+        var PROGRESS_TIMEOUT = 2000;    // hide progressbar after x ms on finish
+        var PROGRESS_WIDTH = 200;       // progressbar width in px
+
+        var lastResult;
+        var g_cpeid;
+        var act_ajax_loop;
+        var progress = 0;
+        var fin_flag;
+
+        function progressBarStep(){
+                document.getElementById("progress_inner").style.width=progress+"px";
+                if (progress<PROGRESS_WIDTH)
+                        progress += PROGRESS_WIDTH/MAX_AJAX_LOOPS;
+                else
+                        progress = 0;
+        }
+
+        function hideProgressBar(status){
+                if (status == 0) { // close immediately
+                        document.getElementById("progress_box").style.display = 'none';
+                        document.getElementById("progress_msg").innerHTML = "";
+                        document.getElementById("progress_inner").style.width = "0px";
+                        progress = 0;
+                } else if (status > 0) { // succes, close in 2 sek
+                        document.getElementById("progress_msg").innerHTML = '<span style="color: #090;">All scenarios finished!</span>';
+                        document.getElementById("progress_inner").style.width = PROGRESS_WIDTH+"px";
+                        setTimeout("hideProgressBar(0)", PROGRESS_TIMEOUT);
+                } else {        // timout, close in 2 sek
+                        document.getElementById("progress_msg").innerHTML = '<span style="color: #A00;">Timeout!</span>';
+                        document.getElementById("progress_inner").style.width = PROGRESS_WIDTH+"px";
+                        setTimeout("hideProgressBar(0)", PROGRESS_TIMEOUT);
+                }
+        }
+
+        /* initiateStateChanged() is the response handler for the immediately scenario activation call */
+        function initiateStateChanged() {
+
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                    if (xmlHttp.status == 200) {
+                        document.getElementById("progress_box").style.display="block";
+                        document.getElementById("progress_msg").innerHTML="waiting for scenario results";
+                        // start scenario interval check at this point
+                        getActiveScenarios(g_cpeid);
+                    } else {
+                        document.getElementById("btn_run_ajax").disabled = "";
+                        document.getElementById("btn_run_ajax_now").disabled = "";
+
+                        if (xmlHttp.status == 401) {
+                            window.location.href=window.location.href;
+                        } else {
+                            alert("Could not add Scenario - check error_log");
+                        }
+                    }
+                }
+        }
+
+        /* onceStateChanged() is the response handler for the next inform scenario activation call */
+        function onceStateChanged() {
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                    if (xmlHttp.status == 200) {
+                        // start just one scenario check at this point
+                        getActiveScenarios(g_cpeid, 1);
+                    } else {
+                        document.getElementById("btn_run_ajax").disabled = "";
+                        document.getElementById("btn_run_ajax_now").disabled = "";
+
+                        if (xmlHttp.status == 401) {
+                            window.location.href=window.location.href;
+                        } else {
+                            alert("Could not add Scenario - check error_log");
+                        }
+                    }
+                }
+        }
+
+        /* deleteStateChanged() is the response handler for the delete finished scenarios call */
+        function deleteStateChanged() {
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                        // start just one scenario check at this point
+                        getFinishedScenarios(g_cpeid);
+                }
+        }
+
+        /* activeStateChanged() is the response handler for each get-active-scenario-html call */
+        function activeStateChanged() {
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                        if (fin_flag) {
+                                // if no more loop is required
+                                fin_flag = 0;
+                                document.getElementById("btn_run_ajax").disabled = '';
+                                document.getElementById("btn_run_ajax_now").disabled = '';
+                                document.getElementById("activescenarios").innerHTML=xmlHttp.responseText;
+                                lastResult = xmlHttp.responseText;
+                                return;
+                        }
+                        //document.getElementById('progress_msg').innerHTML=xmlHttp.responseText.length;
+                        if (xmlHttp.responseText.length > 0 && xmlHttp.responseText.length < 1300) {
+                                // no more scenarios available. stop polling here.
+                                /* < 1050 catches the quite empty response, if no more scenario exists.
+                                   note: there is always responsedata (~1000B), even if no scenario exists */
+                                act_ajax_loop = -1;
+                                document.getElementById("activescenarios").innerHTML=xmlHttp.responseText;
+                                lastResult = xmlHttp.responseText;
+                        } else if (lastResult.length < xmlHttp.responseText.length) {
+                                // new scenario found, just add to scenario list and continue work
+                                document.getElementById("activescenarios").innerHTML=xmlHttp.responseText;
+                                lastResult = xmlHttp.responseText;
+                        } else if (lastResult.length > xmlHttp.responseText.length) {
+                                // at least one scenarios finished, but probably not the last one
+                                // -> reset counter and continue work
+                                document.getElementById("activescenarios").innerHTML=xmlHttp.responseText;
+                                lastResult = xmlHttp.responseText;
+                                act_ajax_loop = 0;
+                        }
+
+                        if (act_ajax_loop==-1) {
+                                // finished. all scenarios are finished.
+                                getFinishedScenarios(g_cpeid);
+                                document.getElementById("btn_run_ajax").disabled = '';
+                                document.getElementById("btn_run_ajax_now").disabled = '';
+                                hideProgressBar(1);
+                        } else if (act_ajax_loop>MAX_AJAX_LOOPS) {
+                                // timeout. there are still active scenarios for this cpe.
+                                getFinishedScenarios(g_cpeid);
+                                document.getElementById("btn_run_ajax").disabled = '';
+                                document.getElementById("btn_run_ajax_now").disabled = '';
+                                hideProgressBar(-1);
+                        } else {
+                                // nothing changed at this point. continue scanning.
+                                progressBarStep();
+                                setTimeout("getActiveScenarios('"+g_cpeid+"');", AJAX_INTERVAL);
+                        }
+                }
+        }
+
+        /* activeStateChanged() is the response handler for the final get-finished-scenario-html call */
+        function finishedStateChanged() {
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                        document.getElementById("finishedscenarios").innerHTML=xmlHttp.responseText;
+                        getFinishedScenarioCount(g_cpeid);
+                }
+        }
+
+        /* activeStateChanged() is the response handler for the final count-finished-scenarios call */
+        function finishedCountStateChanged() {
+                if (xmlHttp && (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")){
+                        document.getElementById("finishedscenariocount").innerHTML=xmlHttp.responseText;
+                }
+        }
+
+        /* activateSCNow(cpeid) starts the selected scenario */
+        function activateSC(cpeid, now){
+                g_cpeid = cpeid;
+                act_ajax_loop = 0;
+                fin_flag = 0;
+
+                xmlHttp = null;
+                xmlHttp=GetXmlHttpObject()
+                if (xmlHttp==null) {
+                        alert('Your browser does not support AJAX HTTP Request, which is needed by this application.');
+                        return 0;
+                }
+
+                formElements = document.getElementById("formsched").elements;
+                lastResult = document.getElementById("activescenarios").innerHTML;
+
+                var url="getCPEScenarioProcess";
+
+                var parameters;
+                if (now)
+                        parameters = "AJAXactivateScenarioNow=1"
+                else
+                        parameters = "AJAXactivateScenario=1"
+                for (i = 0; i < formElements.length; i++){
+                        var elem = formElements[i];
+                        // FIXME: JavaScript URL encoding, must be other
+                        parameters += "&" + elem.name + "=" + encodeURIComponent(elem.value);
+                }
+                parameters += "&cpeid=" + g_cpeid;
+
+                document.getElementById("btn_run_ajax").disabled = "disabled";
+                document.getElementById("btn_run_ajax_now").disabled = "disabled";
+                if (now){
+                        xmlHttp.onreadystatechange=initiateStateChanged;
+                } else {
+                        xmlHttp.onreadystatechange=onceStateChanged;
+                }
+
+                xmlHttp.open('POST', url, true);
+                xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlHttp.setRequestHeader("Content-length", parameters.length);
+                xmlHttp.setRequestHeader("Connection", "close");
+                xmlHttp.send(parameters);
+        }
+
+        function deleteFinishedSCs(cpeid){
+                if (!confirm('Delete all displayed finished scenarios ?'))
+                        return;
+
+                g_cpeid = cpeid;
+
+                xmlHttp = null;
+                xmlHttp=GetXmlHttpObject()
+                if (xmlHttp==null) {
+                        alert('Your browser does not support AJAX HTTP Request, which is needed by this application.');
+                        return 0;
+                }
+
+                formElements = document.getElementById("formsched").elements;
+
+                var url="getCPEScenarioProcess";
+
+                parameters = "AJAXdeleteFinishedScenarios=1"
+                for (i = 0; i < formElements.length; i++){
+                        var elem = formElements[i];
+                        parameters += "&" + elem.name + "=" + encodeURIComponent(elem.value);
+                }
+
+                parameters += "&cpeid=" + g_cpeid;
+
+                xmlHttp.onreadystatechange=deleteStateChanged;
+                xmlHttp.open('POST', url, true);
+                xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlHttp.setRequestHeader("Content-length", parameters.length);
+                xmlHttp.setRequestHeader("Connection", "close");
+                xmlHttp.send(parameters);
+        }
+
+        /* getActiveScenarios(cpeid) gets HTML code of all active CPE scenarios (called frequently) */
+        function getActiveScenarios(cpeid, noloop){
+                var rnd = Math.floor(Math.random()*100000);
+                var url="getCPEScenarioProcess?AJAXgetActiveScenarios=1&cpeid="+cpeid+"&rnd="+rnd;
+
+                if (noloop)
+                        fin_flag = 1;
+
+                act_ajax_loop += 1;
+
+                xmlHttp = null;
+                xmlHttp=GetXmlHttpObject()
+                xmlHttp.onreadystatechange=activeStateChanged;
+                xmlHttp.open('GET', url, true);
+                xmlHttp.send(null);
+        }
+
+        /* getFinishedScenarios(cpeid) gets HTML code of all finished CPE scenarios (final call - part 1) */
+        function getFinishedScenarios(cpeid){
+                var rnd = Math.floor(Math.random()*100000);
+                var url="getCPEScenarioProcess?AJAXgetFinishedScenarios=1&cpeid="+cpeid+"&rnd="+rnd;
+
+                xmlHttp = null;
+                xmlHttp=GetXmlHttpObject()
+                xmlHttp.onreadystatechange=finishedStateChanged;
+                xmlHttp.open('GET', url, true);
+                xmlHttp.send(null);
+        }
+
+        /* getFinishedScenarioCount(cpeid) counts all finished CPE scenarios (final call - part 2) */
+        function getFinishedScenarioCount(cpeid){
+                var rnd = Math.floor(Math.random()*100000);
+                var url="getCPEScenarioProcess?AJAXgetFinishedScenarioCount=1&cpeid="+cpeid+"&rnd="+rnd;
+
+                xmlHttp = null;
+                xmlHttp=GetXmlHttpObject()
+                xmlHttp.onreadystatechange=finishedCountStateChanged;
+                xmlHttp.open('GET', url, true);
+                xmlHttp.send(null);
+        }
+
+
+        //////////////////////////
+        //// END AJAX STUFF ////
+        //////////////////////////
+//-->
+</script>
+
+
+
+
+
+
+
+
+
+	
+  <!-- autosize of parameters box -->
+  <script src="/++resource++ax_common/scripts/jquery/jquery-1.5.2.min.js"></script>
+  <script src="/++resource++ax_common/scripts/jquery/autosize/jquery.autosize-min.js"></script>
+  <!-- autocompletion for alternative scenario field -->
+  <script src="/++resource++ax_common/scripts/jquery/jquery-ui-1.8.19.custom.min.js"></script>
+    
+  <link rel="stylesheet" type="text/css" href="/++resource++ax_common/scripts/jquery/css/smoothness/jquery-ui-1.8.19.custom.css" />
+  <style type="text/css">
+    tr.res_row:hover, tr.res_row:hover td { background: #ddFFDD; border-bottom:solid 1px #8bd124; } 
+    hr {
+        height: 1px;
+        color: #8bd124;
+        background-color: #8bd124;
+        }
+  </style>
+  <script type="text/javascript">
+    function load_clicked() {
+      // stored on the server in py format, so:
+      document.getElementById('ax_pretty_fmt').value= '';
+      document.getElementById('ax_pretty_cb').checked=false;
+      }
+
+    function prettify_args() {
+      args_str = $("#params_box")[0].value;
+      $.post('manage_prettify_structure', {pystruct:args_str, as_str:"1"}, 
+        function(data) {
+           $("#params_box")[0].value = data;
+        });
+    if (document.getElementById('ax_pretty_cb').checked){
+      document.getElementById('ax_pretty_fmt').value= 'True';
+    } else {
+      document.getElementById('ax_pretty_fmt').value= '';
+    }
+
+    }
+     $(document).ready(function(){
+        $('#params_box').autosize();
+        // unformtuantely it doesn't autosize when content is changed
+        // so let's do it on click
+        $('#params_box').bind('click', function(){
+          $(this).css({minHeight:'', maxHeight:'', height:''});
+          $(this).autosize();
+        });
+        $('#multistep_scid').autocomplete({
+             source: 'manage_get_available_scenarios'
+        });
+     });
+  </script>
+
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+<script language="JavaScript" type="text/JavaScript">
+
+        <!--
+function setInitArgs() {
+                window.document.formsched.multistep_scid.value="";
+                v = window.document.formsched.methodName.value;
+                document.getElementById('ax_pretty_cb').checked = false;
+                document.getElementById('ax_pretty_fmt').value = '';
+            if (v=="GetRPCMethods") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{}";
+                    }
+                };
+                if (v=="GetParameterValues") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="['InternetGatewayDevice.ManagementServer.']";
+                    }
+                };
+                if (v=="SetParameterValues") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'InternetGatewayDevice.ManagementServer.PeriodicInformInterval': 3000}";
+                    }
+                };
+                if (v=="GetParameterNames") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'NextLevel': True, 'ParameterPath': 'InternetGatewayDevice.ManagementServer.'}";
+                    }
+                };
+                if (v=="GetParameterAttributes") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="['InternetGatewayDevice.ManagementServer.']";
+                    }
+                };
+                if (v=="SetParameterAttributes") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="[{'AccessList': [], 'Notification': 1, 'NotificationChange': True, 'Name': 'InternetGatewayDevice.ManagementServer.PeriodicInformInterval', 'AccessListChange': False}]";
+                    }
+                };
+                if (v=="Reboot") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="Reboot by Axess Server";
+                    }
+                };
+                if (v=="AddObject") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'ParameterKey': '', 'ObjectName': ''}";
+                    }
+                };
+                if (v=="DeleteObject") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'ParameterKey': '', 'ObjectName': ''}";
+                    }
+                };
+                if (v=="Download") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'Username': '', 'DelaySeconds': 5, 'TargetFileName': '', 'FailureURL': '', 'FileSize': 200, 'SuccessURL': '', 'URL': 'http://your.url.com', 'CommandKey': '', 'Password': '', 'FileType': '1 Firmware Upgrade Image'}";
+                    }
+                };
+                if (v=="Upload") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'Username': '', 'URL': 'http://your.server/cfg3.cfg', 'CommandKey': '', 'DelaySeconds': 0, 'Password': '', 'FileType': '1 Vendor Configuration File'}";
+                    }
+                };
+                if (v=="ScheduleInform") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'DelaySeconds': 10, 'CommandKey': 'Ax ScheduleInform'}";
+                    }
+                };
+                if (v=="ScheduleDownload") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'Username': '', 'TargetFileName': '', 'FileSize': 200, 'URL': 'http://your.url.com', 'TimeWindowList': [{'WindowEnd': 0, 'WindowStart': 0, 'MaxRetries': -1, 'UserMessage': '', 'WindowMode': '1 At Any Time'}], 'CommandKey': '', 'Password': '', 'FileType': '1 Firmware Upgrade Image'}";
+                    }
+                };
+                if (v=="GetQueuedTransfers") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{}";
+                    }
+                };
+                if (v=="GetAllQueuedTransfers") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{}";
+                    }
+                };
+                if (v=="CancelTransfer") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="CommandKey";
+                    }
+                };
+                if (v=="FactoryReset") {
+                    if  (window.confirm ('Reset to Factory Defaults - Are you really sure ?')==True) {
+                        window.document.formsched.parameters.value="{}";
+                    }
+                };
+                if (v=="ChangeDUState") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="{'Operations': [{'URL': 'http://your.url.com', 'Username': '', 'Password': '', 'UUID': '', 'ExecutionEnvRef': ''}, {'URL': 'http://your.url.com', 'Username': '', 'Password': '', 'Version': '', 'UUID': ''}, {'Version': '', 'UUID': '', 'ExecutionEnvRef': ''}], 'CommandKey': ''}";
+                    }
+                };
+                if (v=="X_AXIROS_COM_RunCmdFlow") {
+                    if  (1) {
+                        window.document.formsched.parameters.value="[{'as': 'ipconfig', 'cmd': '/sbin/ifconfig'}]";
+                    }
+                };
+                if (v=="X_ACME_COM_ExampleMethod") {
+                    if  (1) {
+                        window.document.formsched.parameters.value=" {'parameter1': 123, 'parameter2': 'test'} ";
+                    }
+                };
+                }
+//-->
+</script>
+
+</head>
+<body>
+
+
+
+
+
+<!--Zope Tabs header-->
+
+	
+	
+																																																			
+	<table>
+		<tr>
+									<td class="tabblank"><img src="/p_/sp" width="2" height="1" alt="" /></td>
+			<td class="tabact" nowrap="nowrap">&nbsp;<a href="manage_contents">Contents</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_specific">Specific Config</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_general_cfg">General Config</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_log">Log</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_cpeinfos">Managed CPEs</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_cwmpProperties">Properties</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_statistic">Stats</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_UndoForm">Undo</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_findForm">Find</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+												<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+			<td class="tabnorm" nowrap="nowrap">&nbsp;<a href="manage_access">Security</a>&nbsp;
+			</td>
+			<td class="tabblank"><img alt="" src="/p_/sp" /></td>
+									<td class="tabblank" width="100%">&nbsp;</td>
+		</tr>
+	</table>
+    <br />
+
+	<div style="float: left; width: 500px; white-space: nowrap; height: 35px; overflow: visible; white-space: nowrap;">
+	<table width="100%" cellspacing="0" cellpadding="2" border="0" style="margin-bottom: 5px;">
+		<tr class="location-bar">
+			<td align="left" valign="top">
+				<div class="std-text">
+										<img src="/misc_/AXCPEManager/ax_cpe_manager.png" alt="AXCPEManager" border="0" />
+										<strong>
+																		AXCPEManager
+																		at: <a href="/manage_workspace">&nbsp;/</a><a href="/dawn/manage_workspace">dawn</a>/<a class="strong-link" href="/dawn/CPEManager/manage_workspace">CPEManager</a>
+					</strong>
+														</div>
+			</td>
+			<td align="right">
+			</td>
+		</tr>
+	</table>
+
+		</div>
+
+<div class="c"></div>
+
+
+<!--End Zope Tabs header-->
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+	<tr><td class='list-header'>CPE Interoperability And Job Test Environment</td></tr>
+</table>
+
+
+<br>
+  <form name="formsched" id="formsched" method="post" action="">
+<table border="0" cellspacing="0">
+	<tr>
+		<td colspan="2" id="activescenarios"><a target="_self" title="direct properties" href="manage_cpeinfos?viewprops=003356472104"><img border="0" src="edit" alt="Edit"/></a>&nbsp;&nbsp;<a target="_self" title="database log" href="/dawn/CPEManager/manage_objlog?objid=003356472104">
+            <img border="0" src="loggif" alt="Log"/></a>&nbsp;&nbsp;<img border="0" class="lockBtn" id="props003356472104btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('props003356472104')"  onmouseover="getCPEDetailsByAJAX('props003356472104'); tt_swap('props003356472104')" onmouseout="tt_swap('props003356472104')" src="pending" title="PENDING (1)" alt=""/><div class="toolTip" id="props003356472104">no info</div>&nbsp;&nbsp;<b>003356472104&nbsp;</b> - <b>Active Jobs         </b><table><thead><tr class='report5'><th>Del</th><th>&nbsp;Args</th><th>&nbsp;LastRes</th><th>&nbsp;Method</th><th>&nbsp;EnvID</th><th>&nbsp;Time</th><th>&nbsp;Author</th><th>&nbsp;Step</th><th>&nbsp;Interval</th><th>&nbsp;NextDue</th></tr></thead><tbody><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501675113.566421'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501675113.566421btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501675113.566421')"  onmouseover="tt_swap('logR-1-1501675113.566421')" onmouseout="tt_swap('logR-1-1501675113.566421')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501675113.566421">Reboot by Axess Server</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501675113.566421', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501675113.566421</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:33 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675113.6241629'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675113.6241629btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675113.6241629')"  onmouseover="tt_swap('logSPV-1-1501675113.6241629')" onmouseout="tt_swap('logSPV-1-1501675113.6241629')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675113.6241629">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675113.6241629', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675113.6241629</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:33 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675113.6781731'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675113.6781731btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675113.6781731')"  onmouseover="tt_swap('logSPV-1-1501675113.6781731')" onmouseout="tt_swap('logSPV-1-1501675113.6781731')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675113.6781731">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675113.6781731', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675113.6781731</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:33 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675113.7327549'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675113.7327549btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675113.7327549')"  onmouseover="tt_swap('logSPV-1-1501675113.7327549')" onmouseout="tt_swap('logSPV-1-1501675113.7327549')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675113.7327549">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675113.7327549', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675113.7327549</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:33 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675116.758342'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675116.758342btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675116.758342')"  onmouseover="tt_swap('logSPV-1-1501675116.758342')" onmouseout="tt_swap('logSPV-1-1501675116.758342')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675116.758342">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675116.758342', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675116.758342</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501675116.8146851'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501675116.8146851btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501675116.8146851')"  onmouseover="tt_swap('logFR-1-1501675116.8146851')" onmouseout="tt_swap('logFR-1-1501675116.8146851')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501675116.8146851">{}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501675116.8146851', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501675116.8146851</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675117.1868989'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675117.1868989btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675117.1868989')"  onmouseover="tt_swap('logSPV-1-1501675117.1868989')" onmouseout="tt_swap('logSPV-1-1501675117.1868989')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675117.1868989">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675117.1868989', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675117.1868989</td>
+<td class="report3" nowrap>Wed Aug  2 13:58:37 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501675214.8702581'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501675214.8702581btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501675214.8702581')"  onmouseover="tt_swap('logR-1-1501675214.8702581')" onmouseout="tt_swap('logR-1-1501675214.8702581')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501675214.8702581">Reboot by Axess Server</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501675214.8702581', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501675214.8702581</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:14 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675214.905967'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675214.905967btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675214.905967')"  onmouseover="tt_swap('logSPV-1-1501675214.905967')" onmouseout="tt_swap('logSPV-1-1501675214.905967')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675214.905967">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675214.905967', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675214.905967</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:14 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675214.947051'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675214.947051btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675214.947051')"  onmouseover="tt_swap('logSPV-1-1501675214.947051')" onmouseout="tt_swap('logSPV-1-1501675214.947051')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675214.947051">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675214.947051', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675214.947051</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:14 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675214.9850631'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675214.9850631btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675214.9850631')"  onmouseover="tt_swap('logSPV-1-1501675214.9850631')" onmouseout="tt_swap('logSPV-1-1501675214.9850631')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675214.9850631">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675214.9850631', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675214.9850631</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:14 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501675218.0253129'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501675218.0253129btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501675218.0253129')"  onmouseover="tt_swap('logSPV-1-1501675218.0253129')" onmouseout="tt_swap('logSPV-1-1501675218.0253129')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501675218.0253129">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501675218.0253129', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501675218.0253129</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:18 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501675218.1047759'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501675218.1047759btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501675218.1047759')"  onmouseover="tt_swap('logFR-1-1501675218.1047759')" onmouseout="tt_swap('logFR-1-1501675218.1047759')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501675218.1047759">{}</div></td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501675218.1047759', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501675218.1047759</td>
+<td class="report3" nowrap>Wed Aug  2 14:00:18 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>0</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap></td>
+</tr></tbody></table></td>
+	</tr>
+	<tr>
+		<td colspan="20">
+			<br />
+
+            &nbsp;
+			<input type="submit" name="refresh" value="Refresh" />&nbsp;
+			<!-- <input type="submit" value="Run" name="ActivateNow"/>&nbsp; !-->
+            <input type="submit" name="clearAll"
+                   value="Remove Activated Jobs"
+                   title="Clear all active jobs"
+                   onclick="return confirm('Remove all activated jobs for this CPE ?')" />
+			<!-- <input type="submit" name="delete_finished_scs" value="Delete" onclick="return confirm('Delete all displayed finished scenarios ?')"/>&nbsp; !-->
+			<span id="sc_process_msg"></span>
+			<span id="sc_process_ani"></span>
+		</td>
+	</tr>
+</table>
+
+<table border="0">
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr><td colspan="6"><hr /></td></tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr>
+		<td>
+			<table border="0">
+				<tr>
+          <th class="report5"><b>New Job Definition</b></th>
+					<td></td>
+          <th class="report5"><b>Stored Jobs</b></th>
+				</tr>
+				<tr>
+					<td>
+						<table width="100%" border="0" cellspacing="0" id="dayRow" style="display:block">
+              <tr><td align="left">Activation</td><td>
+			<input type="button" value="Run Now"
+          id="btn_run_ajax_now"
+          onclick="activateSC('003356472104', 1)" />&nbsp;
+			<!-- <input type="submit" value="Run scheduled" name="Activate"/>&nbsp; !-->
+			<input type="button" value="Run Scheduled"
+          id="btn_run_ajax"
+          onclick="activateSC('003356472104')" />&nbsp;
+  </td></tr>
+
+							<tr>
+								<td>Select envelope id</td>
+								<td align="left">
+									<input size="30" type="text" name="envId" value="" />
+									<br /><font style="color: #666;">(auto created if you leave emtpy)</font>
+								</td>
+							</tr>
+							<tr>
+								<td>Time Interval / Restarts</td>
+								<td><input size="10" type="text" name="interval"
+                   title="Axess time format, see manual. +1h: Run every hour, 1h 0m: run every day at 1:00, 1d: Run every 1st of month."
+                   value="" />
+	 							&nbsp;/&nbsp;<input size="4" type="text"
+                             name="int:restarts" value="" />
+								<br />
+								<font style="color: #666;">(Leave emtpy to run once)</font>
+								</td>
+							</tr>
+							<tr>
+								<td>Select singlestep scenario</td>
+								<td>
+									<select onchange="setInitArgs();" name="methodName">
+										<option value="GetRPCMethods">GetRPCMethods</option>
+										<option value="GetParameterValues">GetParameterValues</option>
+										<option value="SetParameterValues">SetParameterValues</option>
+										<option value="GetParameterNames">GetParameterNames</option>
+										<option value="GetParameterAttributes">GetParameterAttributes</option>
+										<option value="SetParameterAttributes">SetParameterAttributes</option>
+										<option value="Reboot">Reboot</option>
+										<option value="AddObject">AddObject</option>
+										<option value="DeleteObject">DeleteObject</option>
+										<option value="Download">Download</option>
+										<option value="Upload">Upload</option>
+										<option value="ScheduleInform">ScheduleInform</option>
+										<option value="ScheduleDownload">ScheduleDownload</option>
+										<option value="GetQueuedTransfers">GetQueuedTransfers</option>
+										<option value="GetAllQueuedTransfers">GetAllQueuedTransfers</option>
+										<option value="CancelTransfer">CancelTransfer</option>
+										<option value="FactoryReset">FactoryReset</option>
+										<option value="ChangeDUState">ChangeDUState</option>
+										<option value="X_AXIROS_COM_RunCmdFlow">X_AXIROS_COM_RunCmdFlow</option>
+										<option value="X_ACME_COM_ExampleMethod">X_ACME_COM_ExampleMethod</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top">Alternatively, enter a <br />multistep scenario id&nbsp;</td>
+                <td><input id="multistep_scid" size="30"
+                           type="text" name="multistep_scid"
+                           title="enter dotted, like TAC.Tests.Test1"
+                           value="" /><br /><font style="color: #666;">(within CPE's ACS URI or <a href="Scenarios/manage_main">Scenarios</a> folder)</font></td>
+							</tr>
+							<tr>
+								<td colspan="20" valign="center">
+                  <input type="button" value="&gt;&gt;" title="enlarge input box" onclick="enlargeParamBox()" />
+                
+                  <input type="checkbox" id="ax_pretty_cb" title="convert format" onclick="prettify_args()"> Pretty format
+                 <input type="hidden" id="ax_pretty_fmt" name="ax_pretty_fmt" value="" />
+                
+                
+ 
+                  <br>
+									<textarea id="params_box" name="parameters"
+                   cols="60">{}</textarea>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td></td>
+					<td valign="top">
+						<table>
+							<tr>
+								<td><input type="text" size="40" name="newStoreId"
+                   value="" /></td>
+							</tr>
+							<tr align="center">
+								<td>
+									<select size="10" name="selStoredSC">
+										<option></option>
+										<option selected="selected" value=""></option>
+										<option value="CDLCheckNow">CDLCheckNow</option>
+										<option value="CDLsetURL">CDLsetURL</option>
+										<option value="EnableRemoteLogging">EnableRemoteLogging</option>
+										<option value="GetBackOfficeInfo">GetBackOfficeInfo</option>
+										<option value="GetRemoteSyslog">GetRemoteSyslog</option>
+										<option value="GetSoftwareDownloadParams">GetSoftwareDownloadParams</option>
+										<option value="Lab 5C MAP">Lab 5C MAP</option>
+										<option value="Lab 5C MAP-NG">Lab 5C MAP-NG</option>
+										<option value="Lab 5C MES">Lab 5C MES</option>
+										<option value="MechelenCheckNow">MechelenCheckNow</option>
+										<option value="MechelenPeriodicCheckInterval">MechelenPeriodicCheckInterval</option>
+										<option value="QAMVOD mechelen">QAMVOD mechelen</option>
+										<option value="SanityGPV">SanityGPV</option>
+										<option value="Set reset mode">Set reset mode</option>
+										<option value="SetCDLInterval">SetCDLInterval</option>
+										<option value="SetCNR">SetCNR</option>
+										<option value="SetInformInterval">SetInformInterval</option>
+										<option value="SetRemoteLogHostName">SetRemoteLogHostName</option>
+										<option value="SetRemoteLogHostPort">SetRemoteLogHostPort</option>
+										<option value="SetRemoteLogLevel">SetRemoteLogLevel</option>
+										<option value="Trigger reset">Trigger reset</option>
+										<option value="libirty app url">libirty app url</option>
+										<option value="provision STB">provision STB</option>
+										<option value="upgrade box">upgrade box</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td align="center">
+									<input type="submit" name="LoadSC" value="Load" onclick="load_clicked();" />
+									<input type="submit" name="DelSC" value="Delete" />
+									<input type="submit" name="StoreSC" value="Store" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr><td colspan="6"><hr /></td></tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+  <tr><td colspan="6">
+      <table>
+        
+        <tr><td nowrap>
+		<strong>Finished Jobs</strong>
+
+		<font style="color: #666;" id="finishedscenariocount"> (98 total)</font>
+    </td>
+    <td width="100%">&nbsp;</td>
+    <td align="left" nowrap>
+			<input type="submit" name="refresh" value="Refresh" />&nbsp;
+			<input type="button" value="Remove Finished Jobs"
+          id="btn_del_ajax"
+          onclick="deleteFinishedSCs('003356472104')" />&nbsp;
+			From: <input size="3"
+                title="-1d:last 1 day, -2h: last 2 hours, ..."
+                type="text" size="5" name="sc_from"
+                id="sc_from"
+                title="-1d: last 24h, -1h: last hour, 1h 0m: from 1:00, 6M: from June..."
+                value="-1d" />
+			To: <input size="3" type="text" size="5" name="sc_to"
+              id="sc_to" value="" />&nbsp;
+			Filter: <input title="substring search over all scenarios attributes"
+                  type="text" size="10" name="sc_filter"
+                  value="" />
+  </td>
+	</tr>
+	<tr>
+		<td colspan="3" id="finishedscenarios"><table><thead><tr class='report5'><th>Del</th><th>&nbsp;Args</th><th>&nbsp;LastRes</th><th>&nbsp;Method</th><th>&nbsp;EnvID</th><th>&nbsp;Time</th><th>&nbsp;Author</th><th>&nbsp;Step</th><th>&nbsp;Interval</th><th align="left" width="100%">&nbsp;Scenario Arguments</th></tr></thead><tbody><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501673319.507004_AxessTS_15016733195070'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501673319.507004btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501673319.507004')"  onmouseover="tt_swap('logSPV-1-1501673319.507004')" onmouseout="tt_swap('logSPV-1-1501673319.507004')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501673319.507004">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501673319.507004btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501673319.507004')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501673319.507004'); tt_swap('lresSPV-1-1501673319.507004')" onmouseout="tt_swap('lresSPV-1-1501673319.507004')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501673319.507004">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501673319.507004', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501673319.507004</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:39 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501673319.35619_AxessTS_15016733193561'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501673319.35619btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501673319.35619')"  onmouseover="tt_swap('logFR-1-1501673319.35619')" onmouseout="tt_swap('logFR-1-1501673319.35619')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501673319.35619">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501673319.35619btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501673319.35619')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501673319.35619'); tt_swap('lresFR-1-1501673319.35619')" onmouseout="tt_swap('lresFR-1-1501673319.35619')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501673319.35619">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501673319.35619', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501673319.35619</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:39 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501673319.3184161_AxessTS_15016733193184'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501673319.3184161btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501673319.3184161')"  onmouseover="tt_swap('logSPV-1-1501673319.3184161')" onmouseout="tt_swap('logSPV-1-1501673319.3184161')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501673319.3184161">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501673319.3184161btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501673319.3184161')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501673319.3184161'); tt_swap('lresSPV-1-1501673319.3184161')" onmouseout="tt_swap('lresSPV-1-1501673319.3184161')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501673319.3184161">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501673319.3184161', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501673319.3184161</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:39 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501673316.2811849_AxessTS_15016733162811'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501673316.2811849btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501673316.2811849')"  onmouseover="tt_swap('logSPV-1-1501673316.2811849')" onmouseout="tt_swap('logSPV-1-1501673316.2811849')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501673316.2811849">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501673316.2811849btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501673316.2811849')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501673316.2811849'); tt_swap('lresSPV-1-1501673316.2811849')" onmouseout="tt_swap('lresSPV-1-1501673316.2811849')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501673316.2811849">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501673316.2811849', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501673316.2811849</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501673316.2552459_AxessTS_15016733162552'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501673316.2552459btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501673316.2552459')"  onmouseover="tt_swap('logSPV-1-1501673316.2552459')" onmouseout="tt_swap('logSPV-1-1501673316.2552459')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501673316.2552459">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501673316.2552459btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501673316.2552459')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501673316.2552459'); tt_swap('lresSPV-1-1501673316.2552459')" onmouseout="tt_swap('lresSPV-1-1501673316.2552459')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501673316.2552459">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501673316.2552459', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501673316.2552459</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501673316.2293251_AxessTS_15016733162293'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501673316.2293251btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501673316.2293251')"  onmouseover="tt_swap('logSPV-1-1501673316.2293251')" onmouseout="tt_swap('logSPV-1-1501673316.2293251')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501673316.2293251">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501673316.2293251btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501673316.2293251')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501673316.2293251'); tt_swap('lresSPV-1-1501673316.2293251')" onmouseout="tt_swap('lresSPV-1-1501673316.2293251')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501673316.2293251">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501673316.2293251', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501673316.2293251</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501673316.2021489_AxessTS_15016733162021'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501673316.2021489btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501673316.2021489')"  onmouseover="tt_swap('logR-1-1501673316.2021489')" onmouseout="tt_swap('logR-1-1501673316.2021489')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501673316.2021489">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501673316.2021489btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501673316.2021489')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501673316.2021489'); tt_swap('lresR-1-1501673316.2021489')" onmouseout="tt_swap('lresR-1-1501673316.2021489')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501673316.2021489">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501673316.2021489', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501673316.2021489</td>
+<td class="report3" nowrap>Wed Aug  2 13:28:36 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671360.513552_AxessTS_15016713605135'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671360.513552btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671360.513552')"  onmouseover="tt_swap('logSPV-1-1501671360.513552')" onmouseout="tt_swap('logSPV-1-1501671360.513552')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671360.513552">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671360.513552btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671360.513552')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671360.513552'); tt_swap('lresSPV-1-1501671360.513552')" onmouseout="tt_swap('lresSPV-1-1501671360.513552')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671360.513552">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671360.513552', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671360.513552</td>
+<td class="report3" nowrap>Wed Aug  2 12:56:00 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501671360.3590519_AxessTS_15016713603590'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501671360.3590519btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501671360.3590519')"  onmouseover="tt_swap('logFR-1-1501671360.3590519')" onmouseout="tt_swap('logFR-1-1501671360.3590519')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501671360.3590519">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501671360.3590519btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501671360.3590519')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501671360.3590519'); tt_swap('lresFR-1-1501671360.3590519')" onmouseout="tt_swap('lresFR-1-1501671360.3590519')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501671360.3590519">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501671360.3590519', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501671360.3590519</td>
+<td class="report3" nowrap>Wed Aug  2 12:56:00 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671360.3294089_AxessTS_15016713603294'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671360.3294089btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671360.3294089')"  onmouseover="tt_swap('logSPV-1-1501671360.3294089')" onmouseout="tt_swap('logSPV-1-1501671360.3294089')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671360.3294089">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671360.3294089btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671360.3294089')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671360.3294089'); tt_swap('lresSPV-1-1501671360.3294089')" onmouseout="tt_swap('lresSPV-1-1501671360.3294089')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671360.3294089">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671360.3294089', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671360.3294089</td>
+<td class="report3" nowrap>Wed Aug  2 12:56:00 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671357.312974_AxessTS_15016713573129'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671357.312974btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671357.312974')"  onmouseover="tt_swap('logSPV-1-1501671357.312974')" onmouseout="tt_swap('logSPV-1-1501671357.312974')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671357.312974">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671357.312974btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671357.312974')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671357.312974'); tt_swap('lresSPV-1-1501671357.312974')" onmouseout="tt_swap('lresSPV-1-1501671357.312974')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671357.312974">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671357.312974', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671357.312974</td>
+<td class="report3" nowrap>Wed Aug  2 12:55:57 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671357.2860169_AxessTS_15016713572860'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671357.2860169btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671357.2860169')"  onmouseover="tt_swap('logSPV-1-1501671357.2860169')" onmouseout="tt_swap('logSPV-1-1501671357.2860169')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671357.2860169">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671357.2860169btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671357.2860169')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671357.2860169'); tt_swap('lresSPV-1-1501671357.2860169')" onmouseout="tt_swap('lresSPV-1-1501671357.2860169')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671357.2860169">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671357.2860169', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671357.2860169</td>
+<td class="report3" nowrap>Wed Aug  2 12:55:57 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671357.258559_AxessTS_15016713572585'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671357.258559btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671357.258559')"  onmouseover="tt_swap('logSPV-1-1501671357.258559')" onmouseout="tt_swap('logSPV-1-1501671357.258559')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671357.258559">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671357.258559btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671357.258559')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671357.258559'); tt_swap('lresSPV-1-1501671357.258559')" onmouseout="tt_swap('lresSPV-1-1501671357.258559')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671357.258559">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671357.258559', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671357.258559</td>
+<td class="report3" nowrap>Wed Aug  2 12:55:57 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501671357.219346_AxessTS_15016713572193'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501671357.219346btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501671357.219346')"  onmouseover="tt_swap('logR-1-1501671357.219346')" onmouseout="tt_swap('logR-1-1501671357.219346')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501671357.219346">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501671357.219346btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501671357.219346')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501671357.219346'); tt_swap('lresR-1-1501671357.219346')" onmouseout="tt_swap('lresR-1-1501671357.219346')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501671357.219346">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501671357.219346', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501671357.219346</td>
+<td class="report3" nowrap>Wed Aug  2 12:55:57 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671247.5410321_AxessTS_15016712475410'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671247.5410321btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671247.5410321')"  onmouseover="tt_swap('logSPV-1-1501671247.5410321')" onmouseout="tt_swap('logSPV-1-1501671247.5410321')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671247.5410321">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671247.5410321btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671247.5410321')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671247.5410321'); tt_swap('lresSPV-1-1501671247.5410321')" onmouseout="tt_swap('lresSPV-1-1501671247.5410321')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671247.5410321">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671247.5410321', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671247.5410321</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:07 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501671247.3755529_AxessTS_15016712473755'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501671247.3755529btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501671247.3755529')"  onmouseover="tt_swap('logFR-1-1501671247.3755529')" onmouseout="tt_swap('logFR-1-1501671247.3755529')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501671247.3755529">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501671247.3755529btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501671247.3755529')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501671247.3755529'); tt_swap('lresFR-1-1501671247.3755529')" onmouseout="tt_swap('lresFR-1-1501671247.3755529')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501671247.3755529">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501671247.3755529', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501671247.3755529</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:07 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671247.3391311_AxessTS_15016712473391'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671247.3391311btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671247.3391311')"  onmouseover="tt_swap('logSPV-1-1501671247.3391311')" onmouseout="tt_swap('logSPV-1-1501671247.3391311')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671247.3391311">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671247.3391311btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671247.3391311')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671247.3391311'); tt_swap('lresSPV-1-1501671247.3391311')" onmouseout="tt_swap('lresSPV-1-1501671247.3391311')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671247.3391311">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671247.3391311', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671247.3391311</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:07 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671244.314491_AxessTS_15016712443144'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671244.314491btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671244.314491')"  onmouseover="tt_swap('logSPV-1-1501671244.314491')" onmouseout="tt_swap('logSPV-1-1501671244.314491')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671244.314491">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671244.314491btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671244.314491')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671244.314491'); tt_swap('lresSPV-1-1501671244.314491')" onmouseout="tt_swap('lresSPV-1-1501671244.314491')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671244.314491">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671244.314491', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671244.314491</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:04 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671244.285147_AxessTS_15016712442851'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671244.285147btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671244.285147')"  onmouseover="tt_swap('logSPV-1-1501671244.285147')" onmouseout="tt_swap('logSPV-1-1501671244.285147')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671244.285147">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671244.285147btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671244.285147')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671244.285147'); tt_swap('lresSPV-1-1501671244.285147')" onmouseout="tt_swap('lresSPV-1-1501671244.285147')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671244.285147">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671244.285147', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671244.285147</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:04 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501671244.2570131_AxessTS_15016712442570'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501671244.2570131btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501671244.2570131')"  onmouseover="tt_swap('logSPV-1-1501671244.2570131')" onmouseout="tt_swap('logSPV-1-1501671244.2570131')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501671244.2570131">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501671244.2570131btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501671244.2570131')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501671244.2570131'); tt_swap('lresSPV-1-1501671244.2570131')" onmouseout="tt_swap('lresSPV-1-1501671244.2570131')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501671244.2570131">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501671244.2570131', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501671244.2570131</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:04 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501671244.2313881_AxessTS_15016712442313'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501671244.2313881btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501671244.2313881')"  onmouseover="tt_swap('logR-1-1501671244.2313881')" onmouseout="tt_swap('logR-1-1501671244.2313881')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501671244.2313881">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501671244.2313881btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501671244.2313881')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501671244.2313881'); tt_swap('lresR-1-1501671244.2313881')" onmouseout="tt_swap('lresR-1-1501671244.2313881')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501671244.2313881">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501671244.2313881', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501671244.2313881</td>
+<td class="report3" nowrap>Wed Aug  2 12:54:04 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670701.2795939_AxessTS_15016707012795'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670701.2795939btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670701.2795939')"  onmouseover="tt_swap('logSPV-1-1501670701.2795939')" onmouseout="tt_swap('logSPV-1-1501670701.2795939')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670701.2795939">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670701.2795939btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670701.2795939')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670701.2795939'); tt_swap('lresSPV-1-1501670701.2795939')" onmouseout="tt_swap('lresSPV-1-1501670701.2795939')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670701.2795939">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670701.2795939', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670701.2795939</td>
+<td class="report3" nowrap>Wed Aug  2 12:45:01 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501670701.1415009_AxessTS_15016707011414'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501670701.1415009btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501670701.1415009')"  onmouseover="tt_swap('logFR-1-1501670701.1415009')" onmouseout="tt_swap('logFR-1-1501670701.1415009')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501670701.1415009">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501670701.1415009btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501670701.1415009')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501670701.1415009'); tt_swap('lresFR-1-1501670701.1415009')" onmouseout="tt_swap('lresFR-1-1501670701.1415009')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501670701.1415009">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501670701.1415009', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501670701.1415009</td>
+<td class="report3" nowrap>Wed Aug  2 12:45:01 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670701.1055429_AxessTS_15016707011055'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670701.1055429btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670701.1055429')"  onmouseover="tt_swap('logSPV-1-1501670701.1055429')" onmouseout="tt_swap('logSPV-1-1501670701.1055429')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670701.1055429">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670701.1055429btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670701.1055429')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670701.1055429'); tt_swap('lresSPV-1-1501670701.1055429')" onmouseout="tt_swap('lresSPV-1-1501670701.1055429')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670701.1055429">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670701.1055429', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670701.1055429</td>
+<td class="report3" nowrap>Wed Aug  2 12:45:01 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670698.0799789_AxessTS_15016706980799'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670698.0799789btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670698.0799789')"  onmouseover="tt_swap('logSPV-1-1501670698.0799789')" onmouseout="tt_swap('logSPV-1-1501670698.0799789')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670698.0799789">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670698.0799789btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670698.0799789')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670698.0799789'); tt_swap('lresSPV-1-1501670698.0799789')" onmouseout="tt_swap('lresSPV-1-1501670698.0799789')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670698.0799789">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670698.0799789', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670698.0799789</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:58 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670698.0553589_AxessTS_15016706980553'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670698.0553589btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670698.0553589')"  onmouseover="tt_swap('logSPV-1-1501670698.0553589')" onmouseout="tt_swap('logSPV-1-1501670698.0553589')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670698.0553589">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670698.0553589btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670698.0553589')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670698.0553589'); tt_swap('lresSPV-1-1501670698.0553589')" onmouseout="tt_swap('lresSPV-1-1501670698.0553589')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670698.0553589">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670698.0553589', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670698.0553589</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:58 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670698.0292139_AxessTS_15016706980292'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670698.0292139btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670698.0292139')"  onmouseover="tt_swap('logSPV-1-1501670698.0292139')" onmouseout="tt_swap('logSPV-1-1501670698.0292139')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670698.0292139">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670698.0292139btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670698.0292139')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670698.0292139'); tt_swap('lresSPV-1-1501670698.0292139')" onmouseout="tt_swap('lresSPV-1-1501670698.0292139')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670698.0292139">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670698.0292139', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670698.0292139</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:58 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501670698.001889_AxessTS_15016706980018'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501670698.001889btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501670698.001889')"  onmouseover="tt_swap('logR-1-1501670698.001889')" onmouseout="tt_swap('logR-1-1501670698.001889')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501670698.001889">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501670698.001889btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501670698.001889')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501670698.001889'); tt_swap('lresR-1-1501670698.001889')" onmouseout="tt_swap('lresR-1-1501670698.001889')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501670698.001889">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501670698.001889', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501670698.001889</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:58 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501670685.040853_AxessTS_15016706850408'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501670685.040853btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501670685.040853')"  onmouseover="tt_swap('logFR-1-1501670685.040853')" onmouseout="tt_swap('logFR-1-1501670685.040853')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501670685.040853">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501670685.040853btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501670685.040853')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501670685.040853'); tt_swap('lresFR-1-1501670685.040853')" onmouseout="tt_swap('lresFR-1-1501670685.040853')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501670685.040853">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501670685.040853', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501670685.040853</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:45 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670685.0123019_AxessTS_15016706850123'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670685.0123019btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670685.0123019')"  onmouseover="tt_swap('logSPV-1-1501670685.0123019')" onmouseout="tt_swap('logSPV-1-1501670685.0123019')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670685.0123019">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670685.0123019btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670685.0123019')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670685.0123019'); tt_swap('lresSPV-1-1501670685.0123019')" onmouseout="tt_swap('lresSPV-1-1501670685.0123019')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670685.0123019">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670685.0123019', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670685.0123019</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:45 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670681.9952631_AxessTS_15016706819952'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670681.9952631btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670681.9952631')"  onmouseover="tt_swap('logSPV-1-1501670681.9952631')" onmouseout="tt_swap('logSPV-1-1501670681.9952631')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670681.9952631">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670681.9952631btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670681.9952631')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670681.9952631'); tt_swap('lresSPV-1-1501670681.9952631')" onmouseout="tt_swap('lresSPV-1-1501670681.9952631')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670681.9952631">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670681.9952631', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670681.9952631</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:41 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670681.9690681_AxessTS_15016706819690'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670681.9690681btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670681.9690681')"  onmouseover="tt_swap('logSPV-1-1501670681.9690681')" onmouseout="tt_swap('logSPV-1-1501670681.9690681')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670681.9690681">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670681.9690681btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670681.9690681')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670681.9690681'); tt_swap('lresSPV-1-1501670681.9690681')" onmouseout="tt_swap('lresSPV-1-1501670681.9690681')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670681.9690681">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670681.9690681', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670681.9690681</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:41 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670681.942138_AxessTS_15016706819421'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670681.942138btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670681.942138')"  onmouseover="tt_swap('logSPV-1-1501670681.942138')" onmouseout="tt_swap('logSPV-1-1501670681.942138')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670681.942138">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670681.942138btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670681.942138')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670681.942138'); tt_swap('lresSPV-1-1501670681.942138')" onmouseout="tt_swap('lresSPV-1-1501670681.942138')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670681.942138">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670681.942138', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670681.942138</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:41 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501670681.9080219_AxessTS_15016706819080'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501670681.9080219btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501670681.9080219')"  onmouseover="tt_swap('logR-1-1501670681.9080219')" onmouseout="tt_swap('logR-1-1501670681.9080219')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501670681.9080219">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501670681.9080219btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501670681.9080219')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501670681.9080219'); tt_swap('lresR-1-1501670681.9080219')" onmouseout="tt_swap('lresR-1-1501670681.9080219')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501670681.9080219">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501670681.9080219', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501670681.9080219</td>
+<td class="report3" nowrap>Wed Aug  2 12:44:41 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670466.130693_AxessTS_15016704661306'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670466.130693btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670466.130693')"  onmouseover="tt_swap('logSPV-1-1501670466.130693')" onmouseout="tt_swap('logSPV-1-1501670466.130693')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670466.130693">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670466.130693btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670466.130693')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670466.130693'); tt_swap('lresSPV-1-1501670466.130693')" onmouseout="tt_swap('lresSPV-1-1501670466.130693')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670466.130693">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670466.130693', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670466.130693</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:06 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501670465.974015_AxessTS_15016704659740'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501670465.974015btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501670465.974015')"  onmouseover="tt_swap('logFR-1-1501670465.974015')" onmouseout="tt_swap('logFR-1-1501670465.974015')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501670465.974015">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501670465.974015btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501670465.974015')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501670465.974015'); tt_swap('lresFR-1-1501670465.974015')" onmouseout="tt_swap('lresFR-1-1501670465.974015')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501670465.974015">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501670465.974015', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501670465.974015</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:05 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670465.942044_AxessTS_15016704659420'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670465.942044btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670465.942044')"  onmouseover="tt_swap('logSPV-1-1501670465.942044')" onmouseout="tt_swap('logSPV-1-1501670465.942044')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670465.942044">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670465.942044btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670465.942044')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670465.942044'); tt_swap('lresSPV-1-1501670465.942044')" onmouseout="tt_swap('lresSPV-1-1501670465.942044')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670465.942044">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670465.942044', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670465.942044</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:05 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670462.9187069_AxessTS_15016704629187'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670462.9187069btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670462.9187069')"  onmouseover="tt_swap('logSPV-1-1501670462.9187069')" onmouseout="tt_swap('logSPV-1-1501670462.9187069')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670462.9187069">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670462.9187069btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670462.9187069')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670462.9187069'); tt_swap('lresSPV-1-1501670462.9187069')" onmouseout="tt_swap('lresSPV-1-1501670462.9187069')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670462.9187069">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670462.9187069', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670462.9187069</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:02 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670462.8927381_AxessTS_15016704628927'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670462.8927381btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670462.8927381')"  onmouseover="tt_swap('logSPV-1-1501670462.8927381')" onmouseout="tt_swap('logSPV-1-1501670462.8927381')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670462.8927381">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670462.8927381btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670462.8927381')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670462.8927381'); tt_swap('lresSPV-1-1501670462.8927381')" onmouseout="tt_swap('lresSPV-1-1501670462.8927381')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670462.8927381">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670462.8927381', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670462.8927381</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:02 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501670462.8655729_AxessTS_15016704628655'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501670462.8655729btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501670462.8655729')"  onmouseover="tt_swap('logSPV-1-1501670462.8655729')" onmouseout="tt_swap('logSPV-1-1501670462.8655729')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501670462.8655729">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501670462.8655729btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501670462.8655729')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501670462.8655729'); tt_swap('lresSPV-1-1501670462.8655729')" onmouseout="tt_swap('lresSPV-1-1501670462.8655729')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501670462.8655729">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501670462.8655729', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501670462.8655729</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:02 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501670462.8389471_AxessTS_15016704628389'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501670462.8389471btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501670462.8389471')"  onmouseover="tt_swap('logR-1-1501670462.8389471')" onmouseout="tt_swap('logR-1-1501670462.8389471')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501670462.8389471">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501670462.8389471btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501670462.8389471')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501670462.8389471'); tt_swap('lresR-1-1501670462.8389471')" onmouseout="tt_swap('lresR-1-1501670462.8389471')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501670462.8389471">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501670462.8389471', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501670462.8389471</td>
+<td class="report3" nowrap>Wed Aug  2 12:41:02 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661974.8047969_AxessTS_15016619748047'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661974.8047969btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661974.8047969')"  onmouseover="tt_swap('logSPV-1-1501661974.8047969')" onmouseout="tt_swap('logSPV-1-1501661974.8047969')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661974.8047969">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661974.8047969btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661974.8047969')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661974.8047969'); tt_swap('lresSPV-1-1501661974.8047969')" onmouseout="tt_swap('lresSPV-1-1501661974.8047969')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661974.8047969">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661974.8047969', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661974.8047969</td>
+<td class="report3" nowrap>Wed Aug  2 10:19:34 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661948.6655331_AxessTS_15016619486655'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661948.6655331btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661948.6655331')"  onmouseover="tt_swap('logSPV-1-1501661948.6655331')" onmouseout="tt_swap('logSPV-1-1501661948.6655331')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661948.6655331">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661948.6655331btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661948.6655331')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661948.6655331'); tt_swap('lresSPV-1-1501661948.6655331')" onmouseout="tt_swap('lresSPV-1-1501661948.6655331')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661948.6655331">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661948.6655331', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661948.6655331</td>
+<td class="report3" nowrap>Wed Aug  2 10:19:08 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_FR-1-1501661915.6959779_AxessTS_15016619156959'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logFR-1-1501661915.6959779btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logFR-1-1501661915.6959779')"  onmouseover="tt_swap('logFR-1-1501661915.6959779')" onmouseout="tt_swap('logFR-1-1501661915.6959779')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logFR-1-1501661915.6959779">{}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresFR-1-1501661915.6959779btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresFR-1-1501661915.6959779')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresFR-1-1501661915.6959779'); tt_swap('lresFR-1-1501661915.6959779')" onmouseout="tt_swap('lresFR-1-1501661915.6959779')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresFR-1-1501661915.6959779">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('FR-1-1501661915.6959779', 'FactoryReset', '{}');">FactoryReset</a></td>
+<td class="report3" nowrap>FR-1-1501661915.6959779</td>
+<td class="report3" nowrap>Wed Aug  2 10:18:35 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661854.2668099_AxessTS_15016618542668'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661854.2668099btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661854.2668099')"  onmouseover="tt_swap('logSPV-1-1501661854.2668099')" onmouseout="tt_swap('logSPV-1-1501661854.2668099')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661854.2668099">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661854.2668099btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661854.2668099')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661854.2668099'); tt_swap('lresSPV-1-1501661854.2668099')" onmouseout="tt_swap('lresSPV-1-1501661854.2668099')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661854.2668099">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661854.2668099', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661854.2668099</td>
+<td class="report3" nowrap>Wed Aug  2 10:17:34 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661851.2343371_AxessTS_15016618512343'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661851.2343371btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661851.2343371')"  onmouseover="tt_swap('logSPV-1-1501661851.2343371')" onmouseout="tt_swap('logSPV-1-1501661851.2343371')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661851.2343371">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661851.2343371btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661851.2343371')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661851.2343371'); tt_swap('lresSPV-1-1501661851.2343371')" onmouseout="tt_swap('lresSPV-1-1501661851.2343371')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661851.2343371">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661851.2343371', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661851.2343371</td>
+<td class="report3" nowrap>Wed Aug  2 10:17:31 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661844.079489_AxessTS_15016618440794'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661844.079489btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661844.079489')"  onmouseover="tt_swap('logSPV-1-1501661844.079489')" onmouseout="tt_swap('logSPV-1-1501661844.079489')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661844.079489">{'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661844.079489btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661844.079489')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661844.079489'); tt_swap('lresSPV-1-1501661844.079489')" onmouseout="tt_swap('lresSPV-1-1501661844.079489')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661844.079489">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661844.079489', 'SetParameterValues', '{\'Device.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow\': 1}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661844.079489</td>
+<td class="report3" nowrap>Wed Aug  2 10:17:24 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.CheckNow': 1}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501661835.7470829_AxessTS_15016618357470'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501661835.7470829btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501661835.7470829')"  onmouseover="tt_swap('logSPV-1-1501661835.7470829')" onmouseout="tt_swap('logSPV-1-1501661835.7470829')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501661835.7470829">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501661835.7470829btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501661835.7470829')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501661835.7470829'); tt_swap('lresSPV-1-1501661835.7470829')" onmouseout="tt_swap('lresSPV-1-1501661835.7470829')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501661835.7470829">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501661835.7470829', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501661835.7470829</td>
+<td class="report3" nowrap>Wed Aug  2 10:17:15 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-dbg-00.01-023-aa-AL-20170622153441-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_R-1-1501661804.014025_AxessTS_15016618040140'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logR-1-1501661804.014025btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logR-1-1501661804.014025')"  onmouseover="tt_swap('logR-1-1501661804.014025')" onmouseout="tt_swap('logR-1-1501661804.014025')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logR-1-1501661804.014025">Reboot by Axess Server</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresR-1-1501661804.014025btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresR-1-1501661804.014025')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresR-1-1501661804.014025'); tt_swap('lresR-1-1501661804.014025')" onmouseout="tt_swap('lresR-1-1501661804.014025')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (4B)" alt=""/><div class="toolTip" id="lresR-1-1501661804.014025">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('R-1-1501661804.014025', 'Reboot', 'Reboot by Axess Server');">Reboot</a></td>
+<td class="report3" nowrap>R-1-1501661804.014025</td>
+<td class="report3" nowrap>Wed Aug  2 10:16:44 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">Reboot by Axess Server</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501656349.3275061_AxessTS_15016563493275'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501656349.3275061btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501656349.3275061')"  onmouseover="tt_swap('logSPV-1-1501656349.3275061')" onmouseout="tt_swap('logSPV-1-1501656349.3275061')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501656349.3275061">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501656349.3275061btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501656349.3275061')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501656349.3275061'); tt_swap('lresSPV-1-1501656349.3275061')" onmouseout="tt_swap('lresSPV-1-1501656349.3275061')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501656349.3275061">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501656349.3275061', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501656349.3275061</td>
+<td class="report3" nowrap>Wed Aug  2 08:45:49 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501656339.2790821_AxessTS_15016563392790'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501656339.2790821btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501656339.2790821')"  onmouseover="tt_swap('logSPV-1-1501656339.2790821')" onmouseout="tt_swap('logSPV-1-1501656339.2790821')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501656339.2790821">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501656339.2790821btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501656339.2790821')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501656339.2790821'); tt_swap('lresSPV-1-1501656339.2790821')" onmouseout="tt_swap('lresSPV-1-1501656339.2790821')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501656339.2790821">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501656339.2790821', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501656339.2790821</td>
+<td class="report3" nowrap>Wed Aug  2 08:45:39 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501656158.5361831_AxessTS_15016561585361'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501656158.5361831btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501656158.5361831')"  onmouseover="tt_swap('logSPV-1-1501656158.5361831')" onmouseout="tt_swap('logSPV-1-1501656158.5361831')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501656158.5361831">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501656158.5361831btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501656158.5361831')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501656158.5361831'); tt_swap('lresSPV-1-1501656158.5361831')" onmouseout="tt_swap('lresSPV-1-1501656158.5361831')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501656158.5361831">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501656158.5361831', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501656158.5361831</td>
+<td class="report3" nowrap>Wed Aug  2 08:42:38 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501656148.5050621_AxessTS_15016561485050'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501656148.5050621btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501656148.5050621')"  onmouseover="tt_swap('logSPV-1-1501656148.5050621')" onmouseout="tt_swap('logSPV-1-1501656148.5050621')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501656148.5050621">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501656148.5050621btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501656148.5050621')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501656148.5050621'); tt_swap('lresSPV-1-1501656148.5050621')" onmouseout="tt_swap('lresSPV-1-1501656148.5050621')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501656148.5050621">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501656148.5050621', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501656148.5050621</td>
+<td class="report3" nowrap>Wed Aug  2 08:42:28 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/DCX960__-mon-rel-00.01-025-aa-AL-20170719130128-un000/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501590650.116653_AxessTS_15015906501166'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501590650.116653btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501590650.116653')"  onmouseover="tt_swap('logSPV-1-1501590650.116653')" onmouseout="tt_swap('logSPV-1-1501590650.116653')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501590650.116653">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501590650.116653btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501590650.116653')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501590650.116653'); tt_swap('lresSPV-1-1501590650.116653')" onmouseout="tt_swap('lresSPV-1-1501590650.116653')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501590650.116653">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501590650.116653', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501590650.116653</td>
+<td class="report3" nowrap>Tue Aug  1 14:30:50 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501590073.145591_AxessTS_15015900731455'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501590073.145591btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501590073.145591')"  onmouseover="tt_swap('logSPV-1-1501590073.145591')" onmouseout="tt_swap('logSPV-1-1501590073.145591')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501590073.145591">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501590073.145591btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501590073.145591')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501590073.145591'); tt_swap('lresSPV-1-1501590073.145591')" onmouseout="tt_swap('lresSPV-1-1501590073.145591')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501590073.145591">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501590073.145591', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501590073.145591</td>
+<td class="report3" nowrap>Tue Aug  1 14:21:13 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501589892.961729_AxessTS_15015898929617'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501589892.961729btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501589892.961729')"  onmouseover="tt_swap('logSPV-1-1501589892.961729')" onmouseout="tt_swap('logSPV-1-1501589892.961729')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501589892.961729">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501589892.961729btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501589892.961729')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501589892.961729'); tt_swap('lresSPV-1-1501589892.961729')" onmouseout="tt_swap('lresSPV-1-1501589892.961729')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501589892.961729">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501589892.961729', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501589892.961729</td>
+<td class="report3" nowrap>Tue Aug  1 14:18:12 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr><tr class="res_row">
+<td class="report3" nowrap><input type='image' src='delete' name='delRes_SPV-1-1501589807.256073_AxessTS_15015898072560'/></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="logSPV-1-1501589807.256073btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('logSPV-1-1501589807.256073')"  onmouseover="tt_swap('logSPV-1-1501589807.256073')" onmouseout="tt_swap('logSPV-1-1501589807.256073')" src="infosmall" title="initial arguments" alt=""/><div class="toolTip" id="logSPV-1-1501589807.256073">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</div></td>
+<td align="center" class="report3" nowrap><img border="0" class="lockBtn" id="lresSPV-1-1501589807.256073btn" src="mark" alt=""/><img border="0" onclick="return tt_btnswap('lresSPV-1-1501589807.256073')"  onmouseover="getCPELastResultByAJAX('003356472104', 'lresSPV-1-1501589807.256073'); tt_swap('lresSPV-1-1501589807.256073')" onmouseout="tt_swap('lresSPV-1-1501589807.256073')" src="loggif"  style="padding: 1px;border-width: 0.0px;border-color: #FFF;border-bottom-color: #8bd124;border-style:solid;" title="last result (17B)" alt=""/><div class="toolTip" id="lresSPV-1-1501589807.256073">no info</div></td>
+<td class="report3" nowrap><a href='#' onClick="writeSC('SPV-1-1501589807.256073', 'SetParameterValues', '{\'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL\': \'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/\'}');">SetParameterValues</a></td>
+<td class="report3" nowrap>SPV-1-1501589807.256073</td>
+<td class="report3" nowrap>Tue Aug  1 14:16:47 2017</td>
+<td class="report3" nowrap>admin</td>
+<td class="report3" nowrap>-1</td>
+<td class="report3" nowrap></td>
+<td class="report3" nowrap><font color="grey" size="-2">{'.ManagementServer.X_LGI-COM_SoftwareDownload.OAL.DownloadURL': 'http://dawnssu.dmdsdp.com/swimages/dawn/software/dcx960/1/TEST-FIRM-CHANGE/'}</font></td>
+</tr></tbody></table></td>
+
+	</tr>
+  </table>
+  </td>
+ </tr>
+ </table>
+</form>
+
+<div id="progress_box" style="position:absolute; border:solid #333 1px; background:#ccc; padding:5px; width: 205px; height: 30px; margin-left: 50%; left:50%; top:50%; margin-left:-108px; margin-top: -20px; display:none;">
+	<p id="progress_msg" style="font-size:9pt; font-family: Arial; color: #666; text-align:center; margin: 0px; width: 200px;">foo</p>
+	<div id="progress_outer" style="line-height:0px;font-size:0px;width:204px;border:solid #666 1px; overflow:hidden; background:#eee;">
+		<div id="progress_inner" style="line-height:0px;font-size:0px; margin:2px; width:0px;height:10px;background:#090;"></div>
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
+

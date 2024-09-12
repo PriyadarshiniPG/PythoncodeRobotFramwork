@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Created with VIDFX Streamer version 3.8.4.4 build 77310 context 3245607026382042355-->
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT44M48S" maxSegmentDuration="PT4.011S" minBufferTime="PT0S">
+    <Period>
+        <AdaptationSet id="1" group="1" bitstreamSwitching="true" segmentAlignment="true" contentType="video" mimeType="video/mp4" maxWidth="768" maxHeight="432" par="16:9" maxFrameRate="25" startWithSAP="1">
+            <SegmentTemplate timescale="10000000" media="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(video=$Time$)" initialization="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(video=Init)">
+                <SegmentTimeline>
+                    <S d="40000000" r="671" />
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <Representation id="video.1.L1" bandwidth="400002" codecs="avc1.42c01e" width="768" height="432" frameRate="25" sar="1:1" />
+            <Representation id="video.1.L2" bandwidth="800003" codecs="avc1.42c01e" width="768" height="432" frameRate="25" sar="1:1" />
+            <Representation id="video.1.L3" bandwidth="1200004" codecs="avc1.42c01e" width="768" height="432" frameRate="25" sar="1:1" />
+            <Representation id="video.1.L4" bandwidth="1800004" codecs="avc1.42c01e" width="768" height="432" frameRate="25" sar="1:1" />
+        </AdaptationSet>
+        <AdaptationSet id="2" group="32" bitstreamSwitching="true" segmentAlignment="true" contentType="video" mimeType="video/mp4" maxWidth="768" maxHeight="432" par="16:9" maxFrameRate="25" startWithSAP="1" codingDependency="false">
+            <EssentialProperty schemeIdUri="http://dashif.org/guidelines/trickmode" value="1" />
+            <Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate" />
+            <SegmentTemplate timescale="10000000" media="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(trickmode=$Time$)" initialization="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(trickmode=Init)">
+                <SegmentTimeline>
+                    <S d="40000000" r="671" />
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <Representation id="trickmode.2.L1" bandwidth="400002" codecs="avc1.42c01e" width="768" height="432" frameRate="1" sar="1:1" maxPlayoutRate="25" />
+            <Representation id="trickmode.2.L2" bandwidth="800003" codecs="avc1.42c01e" width="768" height="432" frameRate="1" sar="1:1" maxPlayoutRate="25" />
+            <Representation id="trickmode.2.L3" bandwidth="1200004" codecs="avc1.42c01e" width="768" height="432" frameRate="1" sar="1:1" maxPlayoutRate="25" />
+            <Representation id="trickmode.2.L4" bandwidth="1800004" codecs="avc1.42c01e" width="768" height="432" frameRate="1" sar="1:1" maxPlayoutRate="25" />
+        </AdaptationSet>
+        <AdaptationSet id="3" group="2" bitstreamSwitching="true" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" lang="eng">
+            <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+            <SegmentTemplate timescale="24000" media="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(audio_482_eng=$Time$)" initialization="S!d0FEQVNIVP7...8Bnw__/QualityLevels($Bandwidth$)/Fragments(audio_482_eng=Init)">
+                <SegmentTimeline>
+                    <S d="96256" r="3" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                    <S d="95232" />
+                    <S d="96256" r="2" />
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <Representation id="audio_482_eng.3.L1" bandwidth="64000" codecs="mp4a.40.2" audioSamplingRate="24000" />
+        </AdaptationSet>
+    </Period>
+</MPD>

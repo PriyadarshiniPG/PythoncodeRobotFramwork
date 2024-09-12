@@ -1,0 +1,72 @@
+{
+  "cadence_regulatable_result": "completeRecognition",
+  "message": "query_response",
+  "prompt": "",
+  "audio_transfer_info": {
+    "start_time": "20990000000000000",
+    "packages": [
+      {
+        "bytes": 656,
+        "time": "20990000000000000"
+      },
+      {
+        "bytes": 656,
+        "time": "20990000000000000"
+      }
+    ],
+    "audio_id": 59,
+    "end_time": "20990000000000000",
+    "nss_server": "nss-server:1"
+  },
+  "result_type": "NDSP_ASR_APP_CMD",
+  "status_code": 0,
+  "final_response": 1,
+  "transaction_id": 59,
+  "NMAS_PRFX_SESSION_ID": "c5b01da3-190e-428f-a213-c5556c4474c5",
+  "NMAS_PRFX_TRANSACTION_ID": "59",
+  "nlu_interpretation_results": {
+    "status": "success",
+    "payload": {
+      "interpretations": [
+        {
+          "literal": "Replay TV",
+          "action": {
+            "intent": {
+              "confidence": 1.0,
+              "value": "nuance_tv_open_app"
+            }
+          },
+          "concepts": {
+            "nuance_tv_appname": [
+              {
+                "literal": "replay tv",
+                "ranges": [
+                  [
+                    5,
+                    14
+                  ]
+                ],
+                "value": "lgi_replaytv"
+              }
+            ]
+          }
+        }
+      ],
+      "diagnostic_info": {
+        "timing": {
+          "finalRespSentDelay": "139",
+          "intermediateRespSentDelay": "40"
+        },
+        "context_tag": "M6808_A753",
+        "nlu_language": "xyz-XYZ",
+        "nlu_version": "[Version:nlps-xyz-XYZ-QUICKNLU;Label;6808_NLPS_53;Model;a220a240-67f7-11e7-a4b3-915435de2afa;Build;57ed9a3f-c76a-11e8-8ba3-7f2121871424;QnluTrain;1.20.14;CreatedAt;2099-01-01T00:59:59.000Z]",
+        "nmaid": "NMDPTRIAL_sonic_sellick_org20160126065942"
+      },
+      "type": "nlu-1.0"
+    },
+    "payload_version": "1.0",
+    "payload_format": "nlu-base",
+    "final_response": 1
+  },
+  "result_format": "nlu_interpretation_results"
+}

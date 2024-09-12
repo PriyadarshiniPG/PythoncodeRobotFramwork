@@ -1,0 +1,111 @@
+# Schema
+type: seq
+sequence:
+  - type: map
+    matching: "all"
+    mapping:
+      RACK_SLOT_ID:
+        type: str
+        required: True
+        pattern: ^[\ A-Za-z0-9\-_]*$
+        unique: True
+      PDU_IP:
+        type: text
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      RACK_PC_IP:
+        type: text
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      ROUTER_PC_IP:
+        type: text
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      STB_IP:
+        type: text
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      SERIAL:
+        type: text
+        required: False
+        default: -1 + SERIALCOM: False
+        pattern: ^COM[0-9]{1,2}$
+      CPE_ID:
+        type: text
+        required: True
+        pattern: ^[A-Z0-9]{,6}\-[A-Z]{6,7}\-[0-9]{,12}$
+        unique: True
+      PLATFORM:
+        type: str
+        required: True
+        enum: ['EOS1008C', 'EOS1008R', 'DCX960', 'DCX960-d', 'SMT-G7400', 'SMT-G7401', 'APOLLO']
+      MULTI_ROOM_GROUP_ID:
+        type: str
+        required: False
+      MULTI_ROOM_CONNECTED_STBS:
+        type: seq
+        required: False
+        sequence:
+          - type: str
+      RED_RAT_IR_IP:
+        type: str
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      LAN_PC_IP:
+        type: text
+        required: True
+        pattern: ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+      TEST_STATUS:
+        type: text
+        required: True
+        pattern: ^(.+)|NA$
+      LAB_NAME:
+        type: str
+        required: False
+        pattern: ^[A-Za-z0-9]{1,}$
+      OBELIX_SUPPORT:
+        type: bool
+        required: False
+        default: False
+      PANORAMIX_SUPPORT:
+        type: bool
+        required: False
+        default: False
+      CA_ID:
+        type: text
+        required: True
+        unique: True
+      RL_PORT:
+        type: number
+        required: True
+      PDU_TYPE:
+        type: str
+        required: True
+        enum: ['SOAP', 'REST', 'NA']
+      RACK_TYPE:
+        type: str
+        required: True
+        enum: ['NA', 'SD', 'HD']
+      REVERSE_PDU_SCHEMA:
+        type: bool
+        required: False
+      STB_MAC:
+        type: str
+        required: True
+        pattern: ^[A-Fa-f0-9]{2,2}:[A-Fa-f0-9]{2,2}:[A-Fa-f0-9]{2,2}:[A-Fa-f0-9]{2,2}:[A-Fa-f0-9]{2,2}:[A-Fa-f0-9]{2,2}$
+      BROKER_URL:
+        type: str
+        required: False
+        default: "tcp://mqtt:1883"
+        pattern: ^tcp://[A-Za-z0-9\.\-]+:[0-9]+/mqtt$
+      DEGRADED_MODE_BROKER:
+        type: str
+        required: False
+        default: "ws://127.0.0.1:8888/mqtt"
+      CITY_ID:
+        type: str
+        required: False
+      OSD_LANGUAGE:
+        type: str
+        required: False
+        default: "en"

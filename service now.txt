@@ -1,0 +1,14 @@
+Update Sets
+This feature allows administrators to group a series of changes into a named set and then move them as a unit to other systems for testing or deployment. 
+ISTM 
+Incident and major incident management-
+Incident -results in unplanned interuption in IT services
+Major incident-significant disruption to business and demands a response beyond routine managemnt process
+problem management -unknoown root cause of one or more existing incidet .may be identified when multiple incident exhibit common symptoms
+Request Management-Responsible for managing life cycle of requests from the user exmaple-software installtion,laptop request 
+Change Management -responsible for controlling the lifecycle changes and works to enable benefical changes with minimal disruption in IT services
+CMDB -Configuration managemnt database -Database used to store CI-CI configuration item ->software,hardware,services,location,documents
+knowledge management-imp service quality right info delivered
+SLA -Service level aggrements-agg bw service provider and customer
+ OLA-Organization level aggrements-Internal aggrement
+ UC -Under pinning contarct-Agg bw service provider and vendor-Tracks the time for delivery

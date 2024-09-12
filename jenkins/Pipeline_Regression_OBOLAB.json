@@ -1,0 +1,19 @@
+{
+    "labe2esi": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "FCOBOS-LOCAL-LABE2ESI-1": true,
+        }
+    },
+    "labe2esuperset": {
+        "RELEASE_VERSION": "master",
+        "CPEs": {
+              "FCOBOS-LOCAL-LABSUPERSET-1": false,
+              "FCOBOS-LOCAL-LABSUPERSET-2": true,
+              "FCOBOS-LOCAL-LABSUPERSET-3": false,
+			  "NL-SS-HZN4-ECX-DH5-C11-1": false,
+			  "NL-SS-HZN4-ECX-DH5-C11-2": false,
+              "NL-SS-HZN4-ECX-DH5-C11-3": false
+        }
+    }
+}

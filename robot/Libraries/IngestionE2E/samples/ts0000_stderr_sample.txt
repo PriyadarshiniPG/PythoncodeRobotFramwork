@@ -1,0 +1,39 @@
+INFO: Applying general configuration from /opt/makeadi/etc/makeadi-config.pl.
+INFO: Applying lab configuration from /opt/makeadi/etc/e2esi.pl.
+INFO: The testrunid will be set to: 1502271815.36
+INFO: TestRunID 1502271815.36
+INFO: Running ts0000 from /opt/makeadi/testscripts/ts0000.
+INFO: This test case creates a single package offer that contains sane defaults. Add filename to add new content.
+INFO: Running testcase ts0000. See https://wiki.chello.com/display/VST/Test+Data#TestData-ts0000 for more information.
+INFO: There are no arguments.
+INFO: OK - The variable ADI_Asset_Asset_movie_Content exists as does the content itself movie.ts
+INFO: The mediainfo for movie.ts is on file
+INFO: Setting track information for audio stream 1 in movie.ts
+INFO: Adding eng::mono Audio_Type to movie.ts.
+INFO: OK - The variable ADI_Asset_Asset_preview_Content exists as does the content itself preview.ts
+INFO: The mediainfo for preview.ts is on file
+INFO: Setting track information for audio stream 1 in preview.ts
+INFO: Adding eng::mono Audio_Type to preview.ts.
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fschange.com~~2F1001~~2Fts0000_20170815_115252pt
+INFO: OK - The variable ADI_Asset_Asset_poster_Content exists as does the content itself /tmp/tmp_makeposter_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeposter_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Creating QRCode for http://172.30.218.242/tb/e2esi/traxis/web/Title/crid%3A~~2F~~2Fschange.com~~2F1001~~2Fts0000_20170815_115252pt
+INFO: OK - The variable ADI_Asset_Asset_box-cover_Content exists as does the content itself /tmp/tmp_makeboxcover_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Getting the mediainfo for /tmp/tmp_makeboxcover_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ADI.XML
+INFO: Creating link between /var/TestData/00-01-21_3762kbs_mpeg2video_704x576_4x3_25fps_eng.mp2_NOSUB.De_tasjesdief_1995.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ts0000_20170815_115252pt1.ts
+INFO: Creating link between /var/TestData/00-00-29_3803kbs_mpeg2video_720x576_16x9_25fps_eng.mp2_NOSUB.videohouse_synctest.ts and  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ts0000_20170815_115252pt2.ts
+INFO: Creating copy of /tmp/tmp_makeposter_1502271815.36_1001_ts0000_20170815_115252pt.jpg to  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ts0000_20170815_115252pt3.jpg
+INFO: Creating link between /tmp/tmp_makeboxcover_1502271815.36_1001_ts0000_20170815_115252pt.jpg and  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ts0000_20170815_115252pt4.jpg
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252pt-0-0_Package/ADI.DTD
+INFO: Making Default Offer.
+INFO: Writing /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252ot-0-0_Offer/ADI.XML
+INFO: Creating link between ADI.DTD and  /var/tmp/adi-auto-deploy/e2esi/1001-ts0000_20170815_115252ot-0-0_Offer/ADI.DTD
+INFO: Removing temp file /tmp/tmp_makeposter_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Removing temp file /tmp/tmp_makeboxcover_1502271815.36_1001_ts0000_20170815_115252pt.jpg
+INFO: Finished.
+
+Expected Results:
+It will This test case creates a single package offer that contains sane defaults. Add filename to add new content.
+This is the known good baseline.
+Expect no errors.

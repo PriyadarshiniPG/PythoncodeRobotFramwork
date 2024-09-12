@@ -1,0 +1,2 @@
+del Performance_Stat.json
+robot --loglevel DEBUG --variable=RACK_SLOT_ID:SP-RACK-SLOT-PROD-NL-13 --variable=LAB_NAME:prod_nl --variablefile=resources/stages/conf_oboprod.py --variablefile=resources/config/prod_nl_selene_config.py -i JIRA_ContinueWatchingReplay Tests/PERF

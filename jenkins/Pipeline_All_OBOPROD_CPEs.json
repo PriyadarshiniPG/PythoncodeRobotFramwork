@@ -1,0 +1,113 @@
+[
+ {
+   "name": "CH-XAGGET-HZN4-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003497745301",
+   "lab": "prod_nl",
+   "location": "BA30"
+ },
+ {
+   "name": "CH-Xagget-HZN4-3",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003358561201",
+   "lab": "prod_ch",
+   "location": "BA30"
+ },
+ {
+   "name": "CH-XAGGET-HZN4-4",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003641463900",
+   "lab": "prod_nl",
+   "location": "BA30"
+ },
+ {
+   "name": "CH-XAGGET-HZN4-5",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003655764607",
+   "lab": "prod_ch",
+   "location": "BA30"
+ },
+ {
+   "name": "CL-Xagget-HZN4-1",
+   "active": true,
+   "cpe": "000378-EOSSTB-003436368702",
+   "lab": "prod_cl",
+   "location": "BA30"
+ },
+ {
+   "name": "UK-Xagget-HZN4-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003360799708",
+   "lab": "prod_uk",
+   "location": "BA30"
+ },
+ {
+   "name": "UK-Xagget-HZN4-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003390792103",
+   "lab": "prod_uk",
+   "location": "BA30"
+ },
+ {
+   "name": "NL-HZN4-RED-0",
+   "cpe": "3C36E4-EOSSTB-003475725002",
+   "lab": "prod_nl",
+   "location": "RED"
+ },
+ {
+   "name": "NL-HZN4-RED-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003637806807",
+   "lab": "prod_nl",
+   "location": "RED"
+ },
+ {
+   "name": "NL-HZN4-RED-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003640699405",
+   "lab": "prod_nl",
+   "location": "RED"
+ },
+ {
+   "name": "CH-HZN4-RED-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003356297204",
+   "lab": "prod_ch",
+   "location": "RED"
+ },
+ {
+   "name": "CH-HZN4-RED-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003397277009",
+   "lab": "prod_ch",
+   "location": "RED"
+ },
+ {
+   "name": "CL-HZN4-RED-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003436500304",
+   "lab": "prod_cl",
+   "location": "RED"
+ },
+ {
+   "name": "CL-HZN4-RED-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003436489805",
+   "lab": "prod_cl",
+   "location": "RED"
+ },
+ {
+   "name": "UK-HZN4-RED-1",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003397987409",
+   "lab": "prod_uk",
+   "location": "RED"
+ },
+ {
+   "name": "UK-HZN4-RED-2",
+   "active": true,
+   "cpe": "3C36E4-EOSSTB-003486222601",
+   "lab": "prod_uk",
+   "location": "RED"
+ }
+]
